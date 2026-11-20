@@ -127,7 +127,8 @@ const faqs = [
   .g-b { color: #4285f4; } .g-r { color: #ea4335; } .g-y { color: #fbbc05; } .g-g { color: #34a853; }
   .hero h1 { margin-bottom: 0.35em; }
   .hero h4 a { color: var(--green); }
-  .hero-cta { display: inline-flex; flex-direction: column; align-items: center; margin-top: 10px; }
+  .hero-cta { display: flex; flex-direction: column; width: 22.5vw; min-width: 220px; margin-top: 10px; }
+  .hero-cta .btn { width: 100%; }
   .hero-img img { width: 100%; height: calc(15vw + 428px); object-fit: cover; border-radius: 16px; }
   .hero-cta .btn-note { text-align: center; }
 
@@ -160,7 +161,7 @@ const faqs = [
   .faq-wrap > h2 { margin-bottom: 0.75em; }
   .faq details { border-top: 1px solid #000; }
   .faq details:last-child { border-bottom: 1px solid #000; }
-  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 1.5vw 0; }
+  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 0; }
   .faq summary::-webkit-details-marker { display: none; }
   .faq summary h4 { margin: 0; }
   .plus { position: relative; width: 14px; height: 14px; flex: none; }
@@ -168,7 +169,8 @@ const faqs = [
   .plus::before { left: 0; right: 0; top: 50%; height: 1px; }
   .plus::after { top: 0; bottom: 0; left: 50%; width: 1px; }
   details[open] .plus::after { display: none; }
-  .answer { padding: 0.4vw 0 2.5vw; max-width: 70%; }
+  .answer { padding: 14px 0 28px; max-width: 70%; }
+  .answer p:last-child { margin-bottom: 0; }
   .faq-more { margin-top: 3vw; }
   .faq-more a, .answer a { color: var(--green); }
 
