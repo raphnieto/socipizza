@@ -1,0 +1,58 @@
+---
+import { img, sized } from '../data/images';
+const packages = [
+  {
+    name: 'Chef (package #1)', price: '$875', guests: 'Up to 25 guests', note: '$27/additional guest. Ideal for small and intimate experiences.',
+    image: img.pkgChef, alt: "Pizza chef illustration for Soci Pizza's Chef package.",
+    items: [
+      ['Triangle travel included; extended NC travel $150–$600', false], ['Napkins, plates, and utensils', false],
+      ['90 mins of unlimited service', false], ['3 signature pizza recipes', false], ['Pizza Chef (no truck/tent)', false],
+    ],
+  },
+  {
+    name: 'Tent (package #2)', price: '$1,350', guests: 'Up to 45 guests', note: '$27/additional guest. Ideal for pizza-only mid-sized groups.',
+    image: img.pkgTent, alt: 'Illustration of two pizza chefs under a tent cooking Neapolitan pizza by Soci Pizza.',
+    items: [
+      ['Triangle travel included; extended NC travel $150–$600', false], ['Napkins, plates, and utensils', false],
+      ['2 hours of unlimited service', true], ['4 signature pizza recipes', true], ['Soci Pizza tent (no truck)', true],
+    ],
+  },
+  {
+    name: 'Truck (package #3)', price: '$1,950', guests: 'Up to 45 guests', note: '$27/additional guest. Ideal for weddings with smooth service.',
+    image: img.pkgTruck, alt: 'Pizza truck and tent illustration with 3 chefs and ovens.',
+    items: [
+      ['Triangle travel included; extended NC travel $150–$600', false], ['Napkins, plates, and utensils', false],
+      ['2 hours of unlimited service', false], ['4 signature pizzas recipes', false], ['Soci Pizza truck', true], ['Truck photo ops', true],
+    ],
+  },
+] as const;
+---
+<div class="pkg-grid">
+  {packages.map((p) => (
+    <div class="pkg">
+      <h4><strong>{p.name}</strong></h4>
+      <h1 class="pkg-price"><strong>{p.price}</strong></h1>
+      <h3 class="pkg-guests"><strong>{p.guests}</strong></h3>
+      <h4 class="pkg-note"><em>{p.note}</em></h4>
+      <img src={sized(p.image, 750)} alt={p.alt} loading="lazy" />
+      <p class="pkg-includes"><strong>Includes:</strong></p>
+      <ul>
+        {p.items.map(([t, bold]) => <li>✔ {bold ? <strong>{t}</strong> : t}</li>)}
+      </ul>
+      <a href="/book-now" class="btn">Check availability</a>
+    </div>
+  ))}
+</div>
+<style>
+  .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .pkg { background: var(--white); border: 1px solid #b9b49e; border-radius: 16px; padding: 28px 28px 36px; display: flex; flex-direction: column; }
+  .pkg h4 { font-size: 1.05rem; margin: 0 0 0.6em; }
+  .pkg-price { font-size: 2.1rem; margin: 0 0 0.3em; line-height: 1.1; }
+  .pkg-guests { font-size: 1.3rem; margin-bottom: 0.9em; }
+  .pkg-note { font-size: 1rem !important; line-height: 1.45; }
+  .pkg img { width: 100%; max-width: 200px; margin: 10px auto 30px; }
+  .pkg-includes { margin: 0; }
+  .pkg ul { list-style: none; padding: 0; margin: 0 0 40px; line-height: 1.55; font-size: 0.95rem; }
+  .pkg .btn { margin-top: auto; align-self: center; font-size: 0.9rem; }
+  @media (max-width: 860px) { .pkg-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,221 @@
+---
+import Base from '../layouts/Base.astro';
+import PricingCards from '../components/PricingCards.astro';
+import Social from '../components/Social.astro';
+import { img, sized } from '../data/images';
+
+const faqs = [
+  ['How far in advance should I book my pizza truck catering?', '<p>Reach out anytime, but we recommend booking our vintage pizza truck at least 2–3 months in advance, especially for weekends, weddings, and peak spring–summer dates in Raleigh-Durham, Charlotte, and select destinations across North Carolina.</p>'],
+  ['What’s included in your pizza catering experience?', '<p>We’ll work with you to customize your pizza catering experience, and every package includes:</p><ul><li>Professional staff</li><li>Full setup and cleanup</li><li>Fresh Neapolitan pizzas baked on our mobile pizza truck</li></ul><p>Optional add-ons include Caprese skewers, salad, and cannoli.</p>'],
+  ['What is the minimum to hire you?', '<p>Please visit our <a href="https://www.socipizza.com/pricing">pricing page</a> for details on all packages.</p>'],
+  ['What’s the setup process for your pizza food truck?', '<p>Our process is simple. We arrive 2–4 hours before service (depending on event size and details) to set up and begin prep. Service is buffet-style: guests choose their pizzas and sides with staff assistance, and pizzas are baked fresh and replenished continuously. After service, we handle cleanup and head out.</p>'],
+  ['Do you travel outside Raleigh-Durham for pizza catering?', '<p>Yes. Soci Pizza is based in the Triangle and regularly serves Raleigh, Durham, Chapel Hill, Cary, Pittsboro, Apex, Hillsborough, and surrounding areas. We also travel for select events outside the Triangle, including Charlotte and other North Carolina destinations.</p><p>If you\'re outside our typical service area, contact book@socipizza.com for a custom travel quote.</p>'],
+  ['What if it rains or weather is bad?', '<p>We can typically operate in light rain using our truck and tents. If severe weather (such as heavy rain or high winds) makes service unsafe, we\'ll work with you to reschedule, subject to availability. We also recommend having a nearby covered backup area where we can safely operate if needed.</p>'],
+  ['Can I cancel or reschedule my pizza truck booking?', '<p>If you need to reschedule, your deposit may be transferred to a new date (subject to availability) with at least 7 days’ notice. One reschedule per booking is allowed.</p><p>All deposits are non-refundable. This is because deposits secure your date and allow us to turn away other requests, so backing out affects our ability to book other customers.</p>'],
+];
+---
+<Base
+  title="Pizza Truck Catering for Weddings, Parties, & Corporate Events"
+  description="Soci Pizza's vintage Italian pizza truck creates memorable weddings, parties, and corporate events in the Raleigh-Durham area. Reserve our pizza truck today!"
+>
+  <!-- Hero -->
+  <section class="hero bg-cream">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="rating">★★★★★ <a href="https://share.google/VZ2poGUfvyTA4J0fn" target="_blank" rel="noopener">Rated on Google</a></p>
+        <h1><span class="red"><strong>Pizza truck catering</strong></span><strong> for weddings and and private parties.</strong></h1>
+        <h4>Trusted with 100+ guests at <a target="_blank" rel="noopener" href="https://www.wral.com/lifestyles/wral-lighting-towers-raleigh-durham-rocky-mount/">WRAL Media</a> &amp; <a target="_blank" rel="noopener" href="https://chrislovesjulia.com/">Chris Loves Julia</a>, serving Raleigh-Durham, Charlotte &amp; select North Carolina destinations.</h4>
+        <div class="hero-cta">
+          <a href="/book-now" class="btn">Reserve your date</a>
+          <p class="btn-note">✓ Tasting available ✓ Stress-free</p>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src={sized(img.heroTruck, 1500)} alt="Soci pizza truck providing pizza truck catering on the road in Raleigh-Durham, North Carolina, surrounded by green trees, for weddings, parties, and corporate events." width="855" height="1147" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Event types -->
+  <section class="section bg-white">
+    <div class="wrap">
+      <div class="center intro">
+        <h2><strong>A memorable pizza moment for brides &amp; hosts</strong></h2>
+        <h4 class="sub"><span>Elevate your event</span> with our vintage Italian pizza truck.</h4>
+      </div>
+      <div class="events">
+        <a href="/weddings" class="event">
+          <img src={sized(img.cardWeddings, 750)} alt="Soci pizza truck with bride and groom in Carrboro, NC." loading="lazy" />
+          <h3>Rehearsal dinners &amp; weddings</h3>
+          <p>Perfect for weddings and rehearsal dinners in Raleigh-Durham, Charlotte, and beyond.</p>
+        </a>
+        <a href="/parties" class="event">
+          <img src={sized(img.cardParties, 750)} alt="A backyard engagement party in Hillsborough, NC with Soci Pizza." loading="lazy" />
+          <h3>Parties &amp; private celebrations</h3>
+          <p>Our mobile pizza truck brings a great vibe to any party in the Triangle and select NC cities.</p>
+        </a>
+        <a href="/corporate" class="event">
+          <img src={sized(img.cardCorporate, 750)} alt="Corporate pizza catering by Soci Pizza in Raleigh, NC." loading="lazy" />
+          <h3>Corporate lunch pizza catering</h3>
+          <p>Freshly made on-site pizza for team lunches or client events.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section bg-cream">
+    <div class="wrap">
+      <div class="center intro">
+        <h2><strong>Simple, transparent, </strong><span class="red"><strong>all-inclusive pricing.</strong></span></h2>
+        <p class="scribble">Absolutely no hidden fees.</p>
+        <h4 class="checks">✔ No surprises, clear communication.<br />✔ No wedding fee or seasonal minimums. <br />✔ <em>Most events fall between </em><strong><em>$935–$3,250.</em></strong></h4>
+      </div>
+      <PricingCards />
+    </div>
+  </section>
+
+  <!-- Instagram -->
+  <section class="section bg-green">
+    <div class="wrap center">
+      <h1 class="insta-title"><strong>Follow <a href="https://www.instagram.com/socipizza" target="_blank" rel="noopener" class="yellow-link">@SociPizza</a> on Instagram</strong></h1>
+      <h4 class="insta-sub">See recent events, pizza shots, and behind the scenes from Raleigh-Durham, Charlotte, and select destinations across North Carolina.</h4>
+      <div class="insta-grid">
+        {img.insta.map((p) => (
+          <a href={p.href} target="_blank" rel="noopener"><img src={sized(p.src, 500)} alt="Soci Pizza on Instagram" loading="lazy" /></a>
+        ))}
+      </div>
+      <p class="small">Not on Instagram? Follow us on:</p>
+      <div class="insta-social"><Social size={20} /></div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section bg-yellow">
+    <div class="wrap">
+      <h2 class="center"><strong>Why choose Soci vs your average pizza catering?</strong></h2>
+      <div class="compare">
+        <div class="compare-card compare-soci">
+          <p class="compare-title"><strong>Soci pizza catering ❤️</strong></p>
+          <ul>
+            <li>✓ Transparent pricing, no hidden fees</li>
+            <li>✓ 72h enzyme-rich dough, made in exclusive partnership with Guglhupf</li>
+            <li>✓ Vintage Italian Piaggio Ape truck</li>
+            <li>✓ Italian roots + 5 years NY restaurant ownership</li>
+            <li>✓ Timeless recipes with local ingredients</li>
+          </ul>
+        </div>
+        <div class="compare-card compare-avg">
+          <p class="compare-title"><strong>Average pizza catering</strong></p>
+          <ul>
+            <li>— Hidden fees, sneaky pricing, forced gratuity</li>
+            <li>— Likely a generic wholesale dough with average taste, made with instant yeasts</li>
+            <li>— Average trucks with uninspired setups</li>
+            <li>— A weak company story that has a lack of passion</li>
+            <li>— Unconventional &amp; poorly executed recipes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="center ready">
+        <p><strong>Ready to <em>elevate</em> your event?</strong></p>
+        <a href="/book-now" class="btn btn-green">Reserve your date</a>
+        <p class="btn-note">✓ Tasting available ✓ Stress-free</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-white">
+    <div class="wrap narrow">
+      <h2><strong>Pizza catering FAQ</strong></h2>
+      <div class="faq">
+        {faqs.map(([q, a], i) => (
+          <details open={i === 0}>
+            <summary><h4>{q}</h4><span class="plus" aria-hidden="true"></span></summary>
+            <div class="answer" set:html={a} />
+          </details>
+        ))}
+      </div>
+      <p class="faq-more">Check out our <a href="https://www.socipizza.com/faq">FAQ page</a> for more questions &amp; answers.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta bg-black">
+    <div class="wrap cta-grid">
+      <div>
+        <h1><strong>Reserve your date with Soci Pizza ❤️</strong></h1>
+        <h4><strong>No hidden fees, upfront pricing, and a guaranteed commitment.</strong> Get in touch today and elevate your event.</h4>
+      </div>
+      <div class="cta-btn"><a href="/book-now" class="btn btn-white">Book Now</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: 40px 0 80px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 1200px; }
+  .rating { font-size: 0.85rem; margin-bottom: 0.6em; color: #d9a400; }
+  .rating a { color: var(--black); }
+  .hero h1 { font-size: clamp(2.2rem, 4.6vw, 3.1rem); }
+  .hero h4 { font-size: 1.2rem; }
+  .hero h4 a { color: var(--green); }
+  .hero-cta { display: inline-flex; flex-direction: column; align-items: center; margin-top: 10px; }
+  .hero-img img { width: 100%; height: auto; border-radius: 16px; }
+
+  .intro { margin-bottom: 40px; }
+  .sub { font-size: 1rem; }
+  .events { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; }
+  .event { text-decoration: none; }
+  .event img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; margin-bottom: 22px; }
+  .event h3 { color: var(--green); text-decoration: underline; text-underline-offset: 4px; font-size: 1.25rem; font-weight: 700; }
+  .event p { font-size: 0.9rem; }
+
+  .scribble { display: inline-block; font-style: italic; font-weight: 700; font-size: 0.9rem; border: 1.5px solid var(--red); border-radius: 50%; padding: 2px 16px; margin: 0 0 10px; }
+  .checks { font-size: 1rem; line-height: 1.6; }
+
+  .insta-title { font-size: clamp(2rem, 4vw, 2.6rem); max-width: 520px; margin: 0 auto 0.4em; }
+  .yellow-link { color: var(--yellow); }
+  .insta-sub { font-size: 1rem; max-width: 520px; margin: 0 auto 40px; }
+  .insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 50px; }
+  .insta-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 8px; }
+  .small { font-size: 0.75rem; margin-bottom: 8px; }
+  .insta-social { display: flex; justify-content: center; color: var(--white); }
+
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 520px; margin: 30px auto 60px; }
+  .compare-card { border-radius: 12px; padding: 22px 20px; font-size: 0.82rem; }
+  .compare-soci { background: var(--white); }
+  .compare-avg { background: var(--yellow-light); }
+  .compare-title { font-size: 1rem; margin-bottom: 1em; }
+  .compare ul { list-style: none; padding: 0; margin: 0; }
+  .compare li { margin-bottom: 1.4em; }
+  .ready .btn { margin-top: 4px; }
+
+  .narrow { max-width: 460px; }
+  .faq details { border-top: 1px solid #000; }
+  .faq details:last-child { border-bottom: 1px solid #000; }
+  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 0; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary h4 { margin: 0; font-size: 1rem; }
+  .plus { position: relative; width: 12px; height: 12px; flex: none; }
+  .plus::before, .plus::after { content: ''; position: absolute; background: #000; }
+  .plus::before { left: 0; right: 0; top: 50%; height: 1px; }
+  .plus::after { top: 0; bottom: 0; left: 50%; width: 1px; }
+  details[open] .plus::after { display: none; }
+  .answer { padding: 8px 0 20px; font-size: 0.9rem; }
+  .faq-more { margin-top: 30px; font-size: 0.9rem; }
+  .faq-more a, .answer a { color: var(--green); }
+
+  .cta { padding: 70px 0; }
+  .cta-grid { display: grid; grid-template-columns: 1.4fr 1fr; align-items: center; gap: 30px; }
+  .cta h1 { font-size: clamp(2rem, 3.6vw, 2.5rem); }
+  .cta h4 { font-size: 1rem; }
+  .cta-btn { text-align: center; }
+  .cta .btn { min-width: 180px; }
+
+  @media (max-width: 860px) {
+    .hero-grid, .events, .cta-grid { grid-template-columns: 1fr; }
+    .hero-img { order: -1; }
+    .insta-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>

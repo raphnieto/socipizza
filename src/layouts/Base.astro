@@ -1,0 +1,87 @@
+---
+import Social from '../components/Social.astro';
+import { img, sized } from '../data/images';
+import '../styles/global.css';
+
+interface Props { title: string; description: string; ogTitle?: string; ogDescription?: string; }
+const { title, description, ogTitle = title, ogDescription = description } = Astro.props;
+let path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '');
+const canonical = 'https://www.socipizza.com' + (path || '/');
+const nav = [
+  ['Weddings', '/weddings'], ['Parties', '/parties'], ['Corporate', '/corporate'], ['Pricing', '/pricing'],
+  ['Menu', '/catering-menu'], ['FAQ', '/faq'], ['About', '/about'],
+];
+const ldWebsite = { url: 'https://www.socipizza.com', name: 'Soci Pizza', description: '', image: img.logo, '@context': 'http://schema.org', '@type': 'WebSite' };
+const ldBusiness = { address: '', image: 'https://static1.squarespace.com/static/68d46ed309ef9f41ff376355/t/6938bb970a145d431f994c57/1786562783783/', openingHours: '', '@context': 'http://schema.org', '@type': 'LocalBusiness' };
+---
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={sized(img.favicon, 100)} />
+    <meta property="og:site_name" content="Soci Pizza" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={sized(img.ogImage, 1500)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <script type="application/ld+json" set:html={JSON.stringify(ldWebsite)} />
+    <script type="application/ld+json" set:html={JSON.stringify(ldBusiness)} />
+    <!-- Google Ads (same account as the Squarespace site) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17667807917"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17667807917');
+    </script>
+  </head>
+  <body>
+    <div class="announce" id="announce">
+      <p><strong>2026/27 weekends are filling fast. </strong><a href="/book-now"><strong>Book now</strong></a><strong>.</strong></p>
+      <button type="button" aria-label="Close Announcement" onclick="document.getElementById('announce').remove()">×</button>
+    </div>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a href="/" class="logo"><img src={sized(img.logo, 500)} alt="Soci Pizza" width="120" height="60" /></a>
+        <nav class="main-nav" aria-label="Main">
+          {nav.map(([label, href]) => <a href={href}>{label}</a>)}
+          <a href="/book-now" class="btn btn-sm">Book now</a>
+        </nav>
+        <details class="mobile-nav">
+          <summary aria-label="Open menu"><span></span><span></span></summary>
+          <nav aria-label="Mobile">
+            {nav.map(([label, href]) => <a href={href}>{label}</a>)}
+            <a href="/book-now">Book Now</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="page">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <p>Read the <a href="/about">Soci Pizza story</a>, or follow the <a href="/blog">Soci Pizza blog</a> for pizza truck catering tips.</p>
+          <Social />
+        </div>
+        <div>
+          <p>Based in Pittsboro, NC. Proudly serving Raleigh-Durham, Charlotte &amp; select North Carolina destinations. 🇺🇸</p>
+        </div>
+        <div>
+          <p>Questions? <a href="/faq">Visit our FAQ</a> or contact book@socipizza.com.</p>
+          <p>For booking inquiries, submit a form via our <a href="/book-now">Book Now page</a> or call us at <a href="tel:6672904315">(667) 290-4315</a>.</p>
+          <p><a href="/terms-conditions">Terms &amp; Conditions</a></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
