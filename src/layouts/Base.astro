@@ -11,8 +11,8 @@ const nav = [
   ['Weddings', '/weddings'], ['Parties', '/parties'], ['Corporate', '/corporate'], ['Pricing', '/pricing'],
   ['Menu', '/catering-menu'], ['FAQ', '/faq'], ['About', '/about'],
 ];
-const ldWebsite = { url: 'https://www.socipizza.com', name: 'Soci Pizza', description: '', image: img.logo, '@context': 'http://schema.org', '@type': 'WebSite' };
-const ldBusiness = { address: '', image: 'https://static1.squarespace.com/static/68d46ed309ef9f41ff376355/t/6938bb970a145d431f994c57/1786562783783/', openingHours: '', '@context': 'http://schema.org', '@type': 'LocalBusiness' };
+const ldWebsite = { url: 'https://www.socipizza.com', name: 'Soci Pizza', description: '', image: 'https://www.socipizza.com' + img.logo, '@context': 'http://schema.org', '@type': 'WebSite' };
+const ldBusiness = { address: '', image: 'https://www.socipizza.com/images/localbusiness-image.webp', openingHours: '', '@context': 'http://schema.org', '@type': 'LocalBusiness' };
 ---
 <!doctype html>
 <html lang="en-US">
@@ -28,7 +28,7 @@ const ldBusiness = { address: '', image: 'https://static1.squarespace.com/static
     <meta property="og:description" content={ogDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={sized(img.ogImage, 1500)} />
+    <meta property="og:image" content={'https://www.socipizza.com' + img.ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />

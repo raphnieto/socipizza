@@ -154,63 +154,61 @@ const faqs = [
 
 <style>
   .hero { padding: 40px 0 80px; }
-  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 1200px; }
+  .hero-grid { display: grid; grid-template-columns: 387fr 426fr; gap: 49px; align-items: center; }
   .rating { font-size: 0.85rem; margin-bottom: 0.6em; color: #d9a400; }
   .rating a { color: var(--black); }
-  .hero h1 { font-size: clamp(2.2rem, 4.6vw, 3.1rem); }
-  .hero h4 { font-size: 1.2rem; }
   .hero h4 a { color: var(--green); }
   .hero-cta { display: inline-flex; flex-direction: column; align-items: center; margin-top: 10px; }
-  .hero-img img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 16px; }
+  .hero-img img { width: 100%; aspect-ratio: 426 / 572; object-fit: cover; border-radius: 16px; }
   .hero-cta .btn-note { text-align: center; }
 
   .intro { margin-bottom: 40px; }
-  .sub { font-size: 1rem; }
+  .sub { font-size: 17.69px; }
   .events { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; }
   .event { text-decoration: none; }
   .event img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; margin-bottom: 22px; }
-  .event h3 { color: var(--green); text-decoration: underline; text-underline-offset: 4px; font-size: 1.25rem; font-weight: 700; }
-  .event p { font-size: 0.9rem; }
+  .event h3 { color: var(--green); text-decoration: underline; text-underline-offset: 4px; font-weight: 700; }
+  
 
   .scribble { display: inline-block; font-style: italic; font-weight: 700; font-size: 0.9rem; border: 1.5px solid var(--red); border-radius: 50%; padding: 2px 16px; margin: 0 0 10px; }
-  .checks { font-size: 1rem; line-height: 1.6; }
+  .checks { font-size: 17.69px; line-height: 1.6; }
 
-  .insta-title { font-size: clamp(2rem, 4vw, 2.6rem); max-width: 520px; margin: 0 auto 0.4em; }
+  .insta-title { max-width: 400px; margin: 0 auto 0.4em; }
   .yellow-link { color: var(--yellow); }
-  .insta-sub { font-size: 1rem; max-width: 520px; margin: 0 auto 40px; }
+  .insta-sub { font-size: 17.69px; max-width: 420px; margin: 0 auto 40px; }
   .insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 50px; }
   .insta-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 8px; }
   .small { font-size: 0.75rem; margin-bottom: 8px; }
   .insta-social { display: flex; justify-content: center; color: var(--white); }
 
-  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 520px; margin: 30px auto 60px; }
-  .compare-card { border-radius: 12px; padding: 22px 20px; font-size: 0.82rem; }
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 545px; margin: 30px auto 60px; }
+  .compare-card { border-radius: 12px; padding: 22px 20px; font-size: 14px; line-height: 1.6; }
   .compare-soci { background: var(--white); }
   .compare-avg { background: var(--yellow-light); }
-  .compare-title { font-size: 1rem; margin-bottom: 1em; }
+  .compare-title { font-size: 17.69px; margin-bottom: 1em; }
   .compare ul { list-style: none; padding: 0; margin: 0; }
   .compare li { margin-bottom: 1.4em; }
   .ready .btn { margin-top: 4px; }
 
-  .narrow { max-width: 460px; }
+  .narrow { max-width: calc(545px + 16vw); }
   .faq details { border-top: 1px solid #000; }
   .faq details:last-child { border-bottom: 1px solid #000; }
   .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 0; }
   .faq summary::-webkit-details-marker { display: none; }
-  .faq summary h4 { margin: 0; font-size: 1rem; }
+  .faq summary h4 { margin: 0; }
   .plus { position: relative; width: 12px; height: 12px; flex: none; }
   .plus::before, .plus::after { content: ''; position: absolute; background: #000; }
   .plus::before { left: 0; right: 0; top: 50%; height: 1px; }
   .plus::after { top: 0; bottom: 0; left: 50%; width: 1px; }
   details[open] .plus::after { display: none; }
-  .answer { padding: 8px 0 20px; font-size: 0.9rem; }
-  .faq-more { margin-top: 30px; font-size: 0.9rem; }
+  .answer { padding: 8px 0 20px; }
+  .faq-more { margin-top: 30px; }
   .faq-more a, .answer a { color: var(--green); }
 
   .cta { padding: 70px 0; }
   .cta-grid { display: grid; grid-template-columns: 1.4fr 1fr; align-items: center; gap: 30px; }
-  .cta h1 { font-size: clamp(2rem, 3.6vw, 2.5rem); }
-  .cta h4 { font-size: 1rem; }
+  
+  .cta h4 { font-size: 17.69px; }
   .cta-btn { text-align: center; }
   .cta .btn { min-width: 180px; }
 
