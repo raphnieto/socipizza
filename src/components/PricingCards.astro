@@ -44,15 +44,15 @@ const packages = [
   ))}
 </div>
 <style>
-  .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .pkg { background: var(--white); border: 1px solid #b9b49e; border-radius: 16px; padding: 28px 28px 36px; display: flex; flex-direction: column; }
-  .pkg h4 { margin: 0 0 0.6em; }
-  .pkg-price { margin: 0 0 0.3em; }
-  .pkg-guests { margin-bottom: 0.9em; }
-  
-  .pkg img { width: 100%; max-width: 200px; margin: 10px auto 30px; }
+  .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1vw; }
+  .pkg { background: var(--white); border: 1px solid #b9b49e; border-radius: 16px; padding: 3.85vw; display: flex; flex-direction: column; }
+  .pkg h4 { margin: 0 0 10px; }
+  .pkg-price { margin: 0 0 11px; }
+  .pkg-guests { margin: 0 0 3.2vw; }
+  .pkg .pkg-note { margin: 0 0 10px; }
+  .pkg img { width: 100%; height: calc(12vw + 53px); object-fit: contain; margin: 0 auto 3.85vw; }
   .pkg-includes { margin: 0; }
-  .pkg ul { list-style: none; padding: 0; margin: 0 0 40px; }
+  .pkg ul { list-style: none; padding: 0; margin: 0 0 3.3vw; }
   .pkg .btn { margin-top: auto; align-self: center; }
-  @media (max-width: 860px) { .pkg-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .pkg-grid { grid-template-columns: 1fr; gap: 16px; } .pkg { padding: 28px; } .pkg img { height: 200px; } .pkg-guests { margin-bottom: 24px; } }
 </style>

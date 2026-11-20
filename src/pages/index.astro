@@ -22,11 +22,11 @@ const faqs = [
   <section class="hero bg-cream">
     <div class="wrap hero-grid">
       <div class="hero-text">
-        <p class="rating">★★★★★ <a href="https://share.google/VZ2poGUfvyTA4J0fn" target="_blank" rel="noopener">Rated on Google</a></p>
+        <p class="rating">★★★★★ <a href="https://share.google/VZ2poGUfvyTA4J0fn" target="_blank" rel="noopener">Rated on <span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span></a></p>
         <h1><span class="red"><strong>Pizza truck catering</strong></span><strong> for weddings and and private parties.</strong></h1>
         <h4>Trusted with 100+ guests at <a target="_blank" rel="noopener" href="https://www.wral.com/lifestyles/wral-lighting-towers-raleigh-durham-rocky-mount/">WRAL Media</a> &amp; <a target="_blank" rel="noopener" href="https://chrislovesjulia.com/">Chris Loves Julia</a>, serving Raleigh-Durham, Charlotte &amp; select North Carolina destinations.</h4>
         <div class="hero-cta">
-          <a href="/book-now" class="btn">Reserve your date</a>
+          <a href="/book-now" class="btn btn-lg">Reserve your date</a>
           <p class="btn-note">✓ Tasting available ✓ Stress-free</p>
         </div>
       </div>
@@ -39,7 +39,7 @@ const faqs = [
   <!-- Event types -->
   <section class="section bg-white">
     <div class="wrap">
-      <div class="center intro">
+      <div class="center intro events-intro">
         <h2><strong>A memorable pizza moment for brides &amp; hosts</strong></h2>
         <h4 class="sub"><span>Elevate your event</span> with our vintage Italian pizza truck.</h4>
       </div>
@@ -64,9 +64,9 @@ const faqs = [
   </section>
 
   <!-- Pricing -->
-  <section class="section bg-cream">
+  <section class="section bg-cream pricing">
     <div class="wrap">
-      <div class="center intro">
+      <div class="center intro pricing-intro">
         <h2><strong>Simple, transparent, </strong><span class="red"><strong>all-inclusive pricing.</strong></span></h2>
         <p class="scribble">Absolutely no hidden fees.</p>
         <h4 class="checks">✔ No surprises, clear communication.<br />✔ No wedding fee or seasonal minimums. <br />✔ <em>Most events fall between </em><strong><em>$935–$3,250.</em></strong></h4>
@@ -90,43 +90,9 @@ const faqs = [
     </div>
   </section>
 
-  <!-- Comparison -->
-  <section class="section bg-yellow">
-    <div class="wrap">
-      <h2 class="center"><strong>Why choose Soci vs your average pizza catering?</strong></h2>
-      <div class="compare">
-        <div class="compare-card compare-soci">
-          <p class="compare-title"><strong>Soci pizza catering ❤️</strong></p>
-          <ul>
-            <li>✓ Transparent pricing, no hidden fees</li>
-            <li>✓ 72h enzyme-rich dough, made in exclusive partnership with Guglhupf</li>
-            <li>✓ Vintage Italian Piaggio Ape truck</li>
-            <li>✓ Italian roots + 5 years NY restaurant ownership</li>
-            <li>✓ Timeless recipes with local ingredients</li>
-          </ul>
-        </div>
-        <div class="compare-card compare-avg">
-          <p class="compare-title"><strong>Average pizza catering</strong></p>
-          <ul>
-            <li>— Hidden fees, sneaky pricing, forced gratuity</li>
-            <li>— Likely a generic wholesale dough with average taste, made with instant yeasts</li>
-            <li>— Average trucks with uninspired setups</li>
-            <li>— A weak company story that has a lack of passion</li>
-            <li>— Unconventional &amp; poorly executed recipes</li>
-          </ul>
-        </div>
-      </div>
-      <div class="center ready">
-        <p><strong>Ready to <em>elevate</em> your event?</strong></p>
-        <a href="/book-now" class="btn btn-green">Reserve your date</a>
-        <p class="btn-note">✓ Tasting available ✓ Stress-free</p>
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ -->
-  <section class="section bg-white">
-    <div class="wrap narrow">
+  <section class="section bg-white faq-section">
+    <div class="faq-wrap">
       <h2><strong>Pizza catering FAQ</strong></h2>
       <div class="faq">
         {faqs.map(([q, a], i) => (
@@ -147,74 +113,81 @@ const faqs = [
         <h1><strong>Reserve your date with Soci Pizza ❤️</strong></h1>
         <h4><strong>No hidden fees, upfront pricing, and a guaranteed commitment.</strong> Get in touch today and elevate your event.</h4>
       </div>
-      <div class="cta-btn"><a href="/book-now" class="btn btn-white">Book Now</a></div>
+      <div class="cta-btn"><a href="/book-now" class="btn btn-white btn-lg">Book Now</a></div>
     </div>
   </section>
 </Base>
 
 <style>
-  .hero { padding: 40px 0 80px; }
-  .hero-grid { display: grid; grid-template-columns: 387fr 426fr; gap: 49px; align-items: center; }
-  .rating { font-size: 0.85rem; margin-bottom: 0.6em; color: #d9a400; }
-  .rating a { color: var(--black); }
+  /* Measurements copied from the live Squarespace page (1200 & 1440px wide) */
+  .hero { padding: 3.4vw 0 8.7vw; }
+  .hero-grid { display: grid; grid-template-columns: 37.9vw 41.8vw; column-gap: 4.65vw; align-items: center; }
+  .rating { margin: 0 0 0.5em; color: #d9a400; }
+  .rating a { color: var(--black); text-underline-offset: 3px; }
+  .g-b { color: #4285f4; } .g-r { color: #ea4335; } .g-y { color: #fbbc05; } .g-g { color: #34a853; }
+  .hero h1 { margin-bottom: 0.35em; }
   .hero h4 a { color: var(--green); }
   .hero-cta { display: inline-flex; flex-direction: column; align-items: center; margin-top: 10px; }
-  .hero-img img { width: 100%; aspect-ratio: 426 / 572; object-fit: cover; border-radius: 16px; }
+  .hero-img img { width: 100%; height: calc(15vw + 428px); object-fit: cover; border-radius: 16px; }
   .hero-cta .btn-note { text-align: center; }
 
-  .intro { margin-bottom: 40px; }
-  .sub { font-size: 17.69px; }
-  .events { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; }
+  .section { padding: 6.6vw 0; }
+  .intro { margin: 0 auto 5.2vw; }
+  .events-intro h2 { max-width: 45.3vw; margin: 0 auto 0.3em; }
+  .events-intro .sub { font-size: var(--fs-h4); }
+  .events { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5.2vw; width: 76.4vw; margin: 0 auto; }
   .event { text-decoration: none; }
-  .event img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; margin-bottom: 22px; }
-  .event h3 { color: var(--green); text-decoration: underline; text-underline-offset: 4px; font-weight: 700; }
-  
+  .event img { width: 100%; height: calc(12vw + 23px); object-fit: cover; border-radius: 12px; margin-bottom: 35px; }
+  .event h3 { color: var(--green); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; font-weight: 700; margin-bottom: 0.9em; }
 
-  .scribble { display: inline-block; font-style: italic; font-weight: 700; font-size: 0.9rem; border: 1.5px solid var(--red); border-radius: 50%; padding: 2px 16px; margin: 0 0 10px; }
-  .checks { font-size: 17.69px; line-height: 1.6; }
+  .pricing { padding-top: 3.5vw; }
+  .pricing-intro { max-width: 61vw; margin: 0 auto 3.6vw; }
+  .pricing-intro h2 { margin-bottom: 0.4em; }
+  .scribble { display: inline-block; font-style: italic; font-weight: 700; border: 1.5px solid var(--red); border-radius: 50%; padding: 0 16px; margin: 0 0 1.6em; }
+  .checks { margin: 0; }
+  .pricing .wrap { padding: 0 var(--gutter); }
 
-  .insta-title { max-width: 400px; margin: 0 auto 0.4em; }
-  .yellow-link { color: var(--yellow); }
-  .insta-sub { font-size: 17.69px; max-width: 420px; margin: 0 auto 40px; }
-  .insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 50px; }
-  .insta-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 8px; }
-  .small { font-size: 0.75rem; margin-bottom: 8px; }
+  .insta-title { max-width: 37.8vw; margin: 0 auto 0.15em; }
+  .yellow-link { color: var(--yellow); text-decoration-thickness: 1px; text-underline-offset: 6px; }
+  .insta-sub { max-width: 37.8vw; margin: 0 auto 3.3vw; }
+  .insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 47px; }
+  .insta-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 16px; }
+  .small { font-size: 14px; margin-bottom: 8px; }
   .insta-social { display: flex; justify-content: center; color: var(--white); }
 
-  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 545px; margin: 30px auto 60px; }
-  .compare-card { border-radius: 12px; padding: 22px 20px; font-size: 14px; line-height: 1.6; }
-  .compare-soci { background: var(--white); }
-  .compare-avg { background: var(--yellow-light); }
-  .compare-title { font-size: 17.69px; margin-bottom: 1em; }
-  .compare ul { list-style: none; padding: 0; margin: 0; }
-  .compare li { margin-bottom: 1.4em; }
-  .ready .btn { margin-top: 4px; }
-
-  .narrow { max-width: calc(545px + 16vw); }
+  .faq-wrap { width: 53.3vw; margin: 0 auto; }
+  .faq-section { padding-bottom: 9vw; }
+  .faq-wrap > h2 { margin-bottom: 0.75em; }
   .faq details { border-top: 1px solid #000; }
   .faq details:last-child { border-bottom: 1px solid #000; }
-  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 0; }
+  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 1.5vw 0; }
   .faq summary::-webkit-details-marker { display: none; }
   .faq summary h4 { margin: 0; }
-  .plus { position: relative; width: 12px; height: 12px; flex: none; }
+  .plus { position: relative; width: 14px; height: 14px; flex: none; }
   .plus::before, .plus::after { content: ''; position: absolute; background: #000; }
   .plus::before { left: 0; right: 0; top: 50%; height: 1px; }
   .plus::after { top: 0; bottom: 0; left: 50%; width: 1px; }
   details[open] .plus::after { display: none; }
-  .answer { padding: 8px 0 20px; }
-  .faq-more { margin-top: 30px; }
+  .answer { padding: 0.4vw 0 2.5vw; max-width: 70%; }
+  .faq-more { margin-top: 3vw; }
   .faq-more a, .answer a { color: var(--green); }
 
-  .cta { padding: 70px 0; }
-  .cta-grid { display: grid; grid-template-columns: 1.4fr 1fr; align-items: center; gap: 30px; }
-  
-  .cta h4 { font-size: 17.69px; }
-  .cta-btn { text-align: center; }
-  .cta .btn { min-width: 180px; }
+  .cta { padding: 5.7vw 0; }
+  .cta-grid { display: grid; grid-template-columns: 45.6vw 1fr; align-items: center; gap: 4vw; }
+  .cta h1 { margin-bottom: 0.25em; }
+  .cta h4 { margin: 0; }
+  .cta-btn { display: flex; justify-content: center; }
 
   @media (max-width: 860px) {
     .hero-grid, .events, .cta-grid { grid-template-columns: 1fr; }
+    .hero-grid { row-gap: 32px; }
     .hero-img { order: -1; }
+    .hero-img img { height: auto; aspect-ratio: 4 / 5; }
+    .events { width: 100%; gap: 40px; }
+    .event img { height: auto; aspect-ratio: 3 / 2; }
+    .events-intro h2, .pricing-intro, .insta-title, .insta-sub, .faq-wrap { max-width: none; width: auto; }
     .insta-grid { grid-template-columns: repeat(3, 1fr); }
+    .answer { max-width: none; }
+    .section { padding: 56px 0; }
   }
 </style>
