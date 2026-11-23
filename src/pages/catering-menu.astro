@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+const pizzas = [
+  ['Margherita', 'San Marzano tomatoes, fior di latte, local basil, parmesan, &amp; EVOO.', '/images/margherita-pizza-by-soci-pizza-durham-nc.webp', ''],
+  ['Pepperoni (&amp; hot honey on the side)', 'San Marzano tomatoes, fior di latte, pepperoni, honey, parmesan, &amp; EVOO.', '/images/pepperoni-pizza-by-soci-pizza.webp', 'A pepperoni pizza by Soci pizza on a table with a bottle of hot honey in North Carolina.'],
+  ['Prosciutto &amp; arugula', 'Fior di latte, ricotta, organic arugula, Prosciutto di Parma, parmesan, &amp; EVOO.', '/images/prosciutto-arugula-pizza-soci-pizza-catering-raleigh-durham-nc.webp', 'Prosciutto and arugula pizza served from Soci Pizza truck catering in Raleigh-Durham, NC, fresh and ready to enjoy.'],
+  ['Mushroom &amp; truffle', 'Fior di latte, mushrooms, Maldon salt flakes, and truffle oil.', '/images/mushroom-truffle-pizza-soci-pizza-nc.webp', ''],
+  ['All meats', 'San Marzano tomatoes, fior di latte, pepperoni, sausage, pancetta, parmesan, &amp; EVOO.', '/images/all-meats.webp', ''],
+  ['Bianca', 'Fior di latte, ricotta, Maldon salt flakes, &amp; EVOO.', '/images/bianca-pizza-with-lemon-soci-pizza-nc.webp', 'Bianca pizza by Soci pizza with a lemon on the red checkered table in North Carolina.'],
+];
+const addons = [
+  ['Cannoli with homemade filling ($6/guest)', 'Homemade filling, Ghirardelli dark chocolate or hand-crushed pistachios.', '/images/fresh-cannoli-with-sicilian-shells-by-soci-pizza-in-nc.webp', ''],
+  ['Gourmet caesar salad ($5/guest)', 'Romaine lettuce, baby greens, croutons, and vegetarian house made dressing.', '/images/gourmet-caesar-salad-by-soci-pizza-raleigh-nc.webp', ''],
+  ['Caprese skewers ($5/guest)', 'Cherry tomatoes, mozzarella, local basil, balsamic glaze.', '/images/caprese-skewers-by-soci-pizza-durham-nc.webp', ''],
+];
+---
+<Base
+  title="Menu – Pizza Truck Catering in Raleigh, Durham & Chapel Hill — Soci Pizza"
+  description="Discover our authentic Neapolitan pizzas made with 72-hour enzyme-rich dough. Perfect for weddings, parties, and corporate events in Raleigh-Durham, Charlotte & select North Carolina destinations."
+>
+  <section class="m-hero bg-cream">
+    <div class="wrap m-hero-grid">
+      <img class="m-hero-img" src="/images/soci-pizza-catering-raleigh-menu-photo-main.webp" alt="Three men holding 3 pizzas from Soci Pizza in Raleigh, NC." fetchpriority="high" />
+      <div>
+        <h1><span class="red"><strong>Pizza catering menu</strong></span><strong> with local &amp; Italian ingredients.</strong></h1>
+        <p class="m-lead">Local ingredients, premium Italian imports, plus a dough made in an exclusive partnership with <a target="_blank" rel="noopener" href="https://guglhupf.com/">Guglhupf</a> in Durham.</p>
+        <img class="gug" src="/images/guglhupf-logo-bakery-rest.webp" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <section class="m-menu bg-white">
+    <div class="center m-intro">
+      <h2><strong>Simple pricing + </strong><span class="red"><strong>no hidden fees</strong></span></h2>
+      <h3>$875 minimum includes up to 25 guests. Check out our <a href="/pricing">pricing page</a> for details. Most events fall between $936 and $3,250.</h3>
+    </div>
+    <div class="m-list">
+      <h4><strong>Pizzas</strong></h4>
+      <div class="m-grid">
+        {pizzas.map(([t, d, src, alt]) => (
+          <div class="m-card"><p><strong set:html={t} /><br /><span set:html={d} /></p><img src={src} alt={alt} loading="lazy" /></div>
+        ))}
+      </div>
+      <h4 class="addons-h"><strong>Essential ad-ons</strong></h4>
+      <div class="m-grid">
+        {addons.map(([t, d, src, alt]) => (
+          <div class="m-card"><p><strong set:html={t} /><br /><span set:html={d} /></p><img src={src} alt={alt} loading="lazy" /></div>
+        ))}
+      </div>
+    </div>
+    <div class="m-cta center">
+      <p><strong>Want to customize your menu?<br /></strong>We’ll work with you to make it happen.</p>
+      <a href="/book-now" class="btn btn-lg">Reserve your date</a>
+      <p class="phone">Or text/call <a href="tel:6672904315">(667) 290-4315</a></p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .m-hero { padding: 45px 0 72px; }
+  .m-hero-grid { display: grid; grid-template-columns: 41.75vw 37.8vw; column-gap: 4.65vw; align-items: center; }
+  .m-hero-img { width: 100%; height: calc(15vw + 249px); object-fit: cover; border-radius: 16px; }
+  .m-hero h1 { margin-bottom: 0.35em; }
+  .m-lead { max-width: 34vw; margin-bottom: 23px; }
+  .m-lead a { color: var(--green); }
+  .gug { width: 83px; height: auto; }
+
+  .m-menu { padding: 35px 0 64px; }
+  .m-intro { width: 53.3vw; margin: 0 auto 46px; }
+  .m-intro h2 { margin-bottom: 0.6em; }
+  .m-intro h3 { max-width: 45.6vw; margin: 0 auto; }
+  .m-intro a { color: var(--green); }
+  .m-list { width: 76.6vw; margin: 0 auto; }
+  .m-list h4 { margin: 0 0 7px; }
+  .addons-h { margin-top: 46px !important; }
+  .m-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+  .m-card { background: #f5f5f5; border-radius: 16px; display: flex; justify-content: space-between; min-height: 10.67vw; }
+  .m-card p { font-size: 14px; line-height: 1.6; padding: 19px 0 19px 19px; margin: 0; max-width: 23vw; }
+  .m-card img { width: 10.67vw; height: 10.67vw; object-fit: cover; border-radius: 16px; flex: none; }
+  .m-cta { margin-top: 46px; display: flex; flex-direction: column; align-items: center; }
+  .m-cta p { margin: 0 0 11px; }
+  .m-cta .btn { width: 22.5vw; min-width: 220px; }
+  .phone { margin-top: 11px !important; }
+  .phone a { color: var(--green); }
+
+  @media (max-width: 860px) {
+    .m-hero { padding: 24px 0 48px; }
+    .m-hero-grid { grid-template-columns: 1fr; row-gap: 28px; }
+    .m-hero-img { height: auto; aspect-ratio: 7 / 6; }
+    .m-lead, .m-intro, .m-intro h3 { max-width: none; width: auto; }
+    .m-intro { padding: 0 24px; }
+    .m-list { width: auto; padding: 0 24px; }
+    .m-grid { grid-template-columns: 1fr; }
+    .m-card p { max-width: none; padding-right: 12px; }
+    .m-card img { width: 110px; height: 110px; }
+  }
+</style>

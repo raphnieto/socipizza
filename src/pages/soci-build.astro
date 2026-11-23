@@ -1,0 +1,184 @@
+---
+import Base from '../layouts/Base.astro';
+const I = (n: string) => `/images/sb-${n}.webp`;
+const feats = [
+  ['blue-piaggio-ape-mini-food-truck-modular-build', 'Vintage blue Piaggio Ape mini food truck for catering businesses.', '100% modularity', 'Every nut, bolt, sign, and finish of your Piaggio Ape is fully modular, keeping the vehicle’s original charm and value intact.'],
+  ['plumbing-and-wiring-mini-food-truck-ready', 'Plumbing and wiring system completed for turnkey-ready Piaggio Ape mini food truck.', 'Turnkey-ready', 'Fully wired, plumbed, and tested — each mini food truck leaves ready for a quick start without the headache.'],
+  ['gelato-truck-piaggio-ape-mini-food-truck', 'Hand holding a cone with two scoops of ice cream against a clear blue sky, one pink and one green.', 'Not just for pizza', 'These Piaggio Ape mini food trucks can serve gelato, coffee, or Mediterranean street food with minimal changes.'],
+  ['ape-food-truck-training-and-consulting-soci-build', 'Hands-on Piaggio Ape mini food truck training and consulting by Soci Build.', 'Ape training &amp; consulting', 'Unique hands-on support from a builder/operator. Operate, maintain, and scale your micro food truck business with guidance based on real experience.'],
+];
+---
+<Base
+  title="Soci Build | Custom Piaggio Ape Mini Food Trucks & Mobile Pizza Trucks for Sale — Soci Pizza"
+  description="Discover Soci Build — custom Piaggio Ape mini food trucks handcrafted in North Carolina. Patent-pending roof-mounted oven design, American aluminum frame, and modular builds ready for pizza, gelato, or coffee. Build your own or partner with Soci."
+  header="dark"
+>
+  <section class="sb-hero">
+    <img src={I('custom-piaggio-ape-food-truck-for-sale-north-carolina')} alt="" fetchpriority="high" />
+    <div class="sb-hero-inner">
+      <h1><strong>Piaggio Ape food truck for sale.</strong></h1>
+      <blockquote><h3><strong>Handcrafted mini food truck for pizza, gelato, coffee, &amp; more. Built in NC, USA.</strong></h3></blockquote>
+      <a href="#buildrequestform" class="btn btn-lg btn-white">Request your build</a>
+    </div>
+  </section>
+
+  <section class="sb-quote bg-white center">
+    <h4>To do it right you gotta do it yourself.</h4>
+    <h2><strong>“After shady pricing, long timelines, and poor communication, I realized </strong><span class="red"><strong>no one could build the vision I had</strong></span><strong> for my vintage mini food truck. So I decided to build it myself”</strong></h2>
+  </section>
+
+  <section class="sb-split bg-cream">
+    <div class="txt">
+      <h4>The one year solo-build</h4>
+      <h2><strong>Thousands of decisions, hundreds of bolts, one goal: To build a unique Tiny food truck</strong></h2>
+      <p>It took me four months of design and planning before embarking on an eight-month journey of risky and expensive trial and error, where patience and dedication finally paid off, and I eventually built a unique custom Piaggio Ape food truck.</p>
+    </div>
+    <img src={I('vintage-piaggio-ape-mini-food-truck-build-garage')} alt="Builder working on a custom Piaggio Ape food truck inside a North Carolina garage." loading="lazy" />
+  </section>
+
+  <section class="sb-split left bg-white">
+    <img src={I('american-aluminum-frame-piaggio-ape-food-truck-jpg')} alt="Modular American aluminum frame structure of a custom Piaggio Ape mini food truck." loading="lazy" />
+    <div class="txt">
+      <h4>Quality materials &amp; craftsmanship</h4>
+      <h2><strong>A modular frame using American aluminum poles</strong></h2>
+      <p>Most small food truck builders rely on heavy steel permanent frames, and you never know where those materials come from. My modular Piaggio Ape pizza truck is framed with American-made aluminum poles.</p>
+    </div>
+  </section>
+
+  <section class="sb-split bg-cream">
+    <div class="txt">
+      <h4>The oven on top</h4>
+      <h2><strong>Patent pending Piaggio Ape food truck design</strong></h2>
+      <p>By moving the oven to the top of the cabin, my patent-pending Piaggio Ape pizza truck design keeps the working space cooler, frees interior space, and creates a striking centerpiece. The first of its kind, turning design and function into a performance advantage.</p>
+    </div>
+    <img src={I('patent-pending-piaggio-ape-pizza-truck-design-with-roof-mounted-gozney-oven')} alt="A backyard scene with a sunset sky featuring orange and pink clouds, visible through a window. Outside, there are houses, a lawn, and a parked car. On the windowsill, there's a white robotic vacuum cleaner." loading="lazy" style="aspect-ratio: 500 / 523" />
+  </section>
+
+  <section class="sb-split left bg-white">
+    <img src={I('custom-lightweight-awning-micro-food-truck')} alt="" loading="lazy" style="aspect-ratio: 500 / 569" />
+    <div class="txt">
+      <h4>Low-profile exterior awning</h4>
+      <h2><strong>Lightweight custom awning with perfect gas strut control</strong></h2>
+      <p>Most food truck awnings are bulky or imported. My low-profile awning system was engineered specifically for micro food truck builds, lightweight, balanced, and durable with precision gas struts for long-term reliability.</p>
+    </div>
+  </section>
+
+  <section class="sb-feats bg-green">
+    <h2 class="center"><strong>Modular, </strong><span class="yellow"><strong>turnkey-ready</strong></span><strong>, and backed with training.</strong></h2>
+    <div class="feat-grid">
+      {feats.map(([img, alt, t, d]) => (
+        <div><img src={I(img)} alt={alt} loading="lazy" /><h4><strong set:html={t} /></h4><p>{d}</p></div>
+      ))}
+    </div>
+  </section>
+
+  <section class="sb-partner bg-cream" id="socibuild">
+    <h2 class="center"><strong>Become a partner or get a mini food truck for your own business.</strong></h2>
+    <h4 class="center">Get your own Piaggio Ape mini food truck and join <a href="https://www.socipizza.com?utm_source=chatgpt.com" target="_blank" rel="noopener">Soci Pizza’s private-only mobile catering</a> as a partner, or get one for your own business.</h4>
+    <div class="plans">
+      <div class="plan">
+        <h3><strong>Become a partner</strong></h3>
+        <p>✔ Smaller build cost upfront<br /><br />✔ Small annual franchise fee</p>
+        <p>✔ Shared marketing</p>
+        <p>✔ Access to recipes and suppliers</p>
+        <p>✔ On-going business consultation &amp; Ape resources directly from Soci</p>
+        <p>✔ Milestone-based equity opportunity </p>
+      </div>
+      <div class="plan">
+        <h3><strong>Get your own truck</strong></h3>
+        <p>✔ Standard build cost upfront</p>
+        <p>✔ No annual franchise fee</p>
+        <p>✔ Limited consultation &amp; Ape training</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sb-form bg-white" id="buildrequestform">
+    <h2 class="center"><strong>Soci Build request form.</strong></h2>
+    <h4 class="center">Get a custom Piaggio Ape food truck build. <strong>Limited 2026-2027 production slots available</strong>.</h4>
+    <form class="form" method="post" data-form="soci-build">
+      <fieldset class="row2"><legend>Name <span>(required)</span></legend>
+        <label>First Name<input name="fname" required autocomplete="given-name" /></label>
+        <label>Last Name<input name="lname" required autocomplete="family-name" /></label>
+      </fieldset>
+      <label>Email <span>(required)</span><input type="email" name="email" required autocomplete="email" /></label>
+      <label>Phone <span>(required)</span><input type="tel" name="phone" required autocomplete="tel" /></label>
+      <label>What is the approximate budget for your project? <span>(required)</span><small>A range is totally fine.</small><input name="budget" required /></label>
+      <label>Where will the truck be delivered to?<input name="delivery" /></label>
+      <label>What type of business is it for? <span>(required)</span>
+        <select name="business" required><option value="">Select an option</option><option>Pizza</option><option>Gelato</option><option>Coffee</option><option>Baked Goods</option><option>Other</option></select>
+      </label>
+      <label>Do you have any more details you'd like to share for the build?<textarea name="details" rows="4"></textarea></label>
+      <fieldset class="radios"><legend>Help me keep doing what I love. How did you hear about Soci Build?</legend>
+        <label><input type="radio" name="source" value="Google Ads" /> Google Ads</label>
+        <label><input type="radio" name="source" value="Google Organic Search" /> Google Organic Search</label>
+        <label><input type="radio" name="source" value="Social Media/ Youtube" /> Social Media/ Youtube</label>
+        <label><input type="radio" name="source" value="Word of Mouth" /> Word of Mouth</label>
+      </fieldset>
+      <button type="submit" class="btn btn-lg">Request your build</button>
+    </form>
+  </section>
+</Base>
+
+<style>
+  .sb-hero::after { content: ''; position: absolute; inset: 0; background: #000; opacity: 0.15; }
+  .sb-hero > *:not(img) { z-index: 1; }
+  .sb-hero { position: relative; height: calc(69.6vw - 34px); min-height: 520px; background: #000; color: var(--white); overflow: hidden; }
+  .sb-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .sb-hero-inner { position: relative; height: 100%; display: flex; flex-direction: column; align-items: center; padding: 150px 24px 0; text-align: center; }
+  .sb-hero blockquote { margin: auto 0 0; max-width: 46.6vw; }
+  .sb-hero blockquote h3 { margin: 0; }
+  .sb-hero .btn { margin: 39px 0 9.5vw; }
+
+  .sb-quote { padding: 13.7vw 15.6vw; }
+  .sb-quote h4 { margin-bottom: 1.4em; }
+  .sb-quote h2 { margin: 0; }
+
+  .sb-split { display: grid; grid-template-columns: 37.8vw 41.7vw; column-gap: 8.65vw; align-items: center; padding: 6.6vw 4vw 6.6vw 7.85vw; }
+  .sb-split.left { grid-template-columns: 41.7vw 37.8vw; padding: 6.6vw 7.85vw 6.6vw 4vw; }
+  .sb-split > img { width: 100%; aspect-ratio: 500 / 510; object-fit: cover; border-radius: 4px; }
+  .sb-split h4 { margin-bottom: 1.6em; }
+  .sb-split h2 { margin-bottom: 0.7em; }
+  .yellow { color: var(--yellow); }
+
+  .sb-feats { padding: 8.3vw 4vw; color: var(--white); }
+  .sb-feats h2 { max-width: 45.6vw; margin: 0 auto 5.5vw; }
+  .feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 11px; }
+  .feat-grid img { width: 100%; aspect-ratio: 268 / 232; object-fit: cover; border-radius: 4px; margin-bottom: 11px; }
+  .feat-grid h4 { margin-bottom: 0.5em; }
+
+  .sb-partner { padding: 5.75vw 0 6vw; }
+  .sb-partner h2 { max-width: 53.3vw; margin: 0 auto 0.5em; }
+  .sb-partner h4 { max-width: 61vw; margin: 0 auto 50px; }
+  .sb-partner h4 a { color: var(--green); }
+  .plans { display: grid; grid-template-columns: repeat(2, 30vw); gap: 11px; justify-content: center; }
+  .plan { background: var(--white); border: 1px solid var(--green); border-radius: 16px; padding: 35px 3.85vw; min-height: calc(43vw - 0px); }
+  .plan h3 { margin-bottom: 1.4em; }
+  .plan p { margin: 0 0 14px; }
+
+  .sb-form { padding: 5.75vw 0 6vw; }
+  .sb-form h2 { margin-bottom: 0.5em; }
+  .sb-form > h4 { max-width: 61vw; margin: 0 auto 48px; }
+  .form { width: 37.8vw; min-width: 300px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; font-size: 14px; }
+  .form label, .form legend { display: flex; flex-direction: column; gap: 6px; }
+  .form span { opacity: 0.6; }
+  .form small { font-size: var(--fs-body); }
+  .form fieldset { border: 0; padding: 0; margin: 0; }
+  .form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .form .row2 legend { grid-column: 1 / -1; margin-bottom: 6px; }
+  .form input:not([type=radio]), .form select, .form textarea { font: inherit; font-size: 16px; padding: 12px; border: 1px solid #a9a9a9; border-radius: 0; background: #fafafa; width: 100%; }
+  .form .radios { display: flex; flex-wrap: wrap; gap: 14px 30px; }
+  .form .radios legend { width: 100%; margin-bottom: 8px; }
+  .form .radios label { flex-direction: row; align-items: center; gap: 8px; }
+  .form button { align-self: flex-start; }
+
+  @media (max-width: 860px) {
+    .sb-hero blockquote, .sb-feats h2, .sb-partner h2, .sb-partner h4, .sb-form > h4 { max-width: none; padding: 0 24px; }
+    .sb-split, .sb-split.left { grid-template-columns: 1fr; row-gap: 28px; padding: 56px 24px; }
+    .sb-split:not(.left) > img { order: -1; }
+    .feat-grid { grid-template-columns: 1fr 1fr; }
+    .plans { grid-template-columns: 1fr; padding: 0 24px; }
+    .plan { min-height: 0; }
+    .form { width: auto; padding: 0 24px; }
+  }
+</style>

@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+const build = [
+  ['/images/vintage-piaggio-ape-mini-food-truck-build-garage.webp', 'Raphael Nieto working inside his Pittsboro garage on the early stage of a custom Piaggio Ape mini food-truck build for Soci Pizza, shaping the foundation of a North Carolina mobile pizza catering truck.', '<strong>Fall 2024:</strong> Sketches, material hunts, and lots of trial and error marked the start of the build.'],
+  ['/images/soci-pizza-piaggio-ape-aluminum-frame-build-nc.webp', 'Blue vintage Piaggio Ape with a newly mounted aluminum modular frame in a garage, showing the lightweight structure used in Soci Pizza’s custom mini food-truck build in North Carolina.', '<strong>Spring 2025: </strong>A modular frame built from American aluminum poles, strong yet flexible.'],
+  ['/images/plumbing-and-wiring-mini-food-truck-ready.webp', 'Close-up of plumbing and wiring installation under a stainless-steel sink during the Piaggio Ape food-truck build by Soci Pizza in Pittsboro NC, highlighting electrical and plumbing craftsmanship.', '<strong>Summer 2025: </strong>Every bit of plumbing, wiring, and paint got me closer to the finish line.'],
+  ['/images/soci-pizza-truck-piaggio-ape-farm-to-table-truck-finish.webp', 'Red panel of the Soci Pizza truck Piaggio Ape mini food truck with “Farm to Table Neapolitan Pizza” lettering, marking the final branding and completion of the custom build in North Carolina.', '<strong>Fall 2025:</strong> Final touches, branding, sealing, and testing. The Soci pizza truck came to life.'],
+];
+---
+<Base
+  title="About – Mobile Pizza Truck Catering in the Triangle — Soci Pizza"
+  description="From New York roots to North Carolina farms, Soci Pizza was built by hand—one bolt, one pizza at a time. Today, our vintage Italian pizza truck serves weddings, parties, and private events throughout the Triangle, Charlotte, and select North Carolina destinations."
+  header="green"
+>
+  <section class="a-hero bg-green">
+    <div class="wrap a-grid">
+      <div>
+        <h1><strong>The </strong><span class="yellow"><strong>Soci Pizza</strong></span><strong> story.</strong></h1>
+        <h4>New York roots, Triangle farms, and the build of a vintage Italian pizza truck.</h4>
+      </div>
+      <div>
+        <img src="/images/soci-pizza-catering-about-image-owner-raphael-nieto.webp" alt="" fetchpriority="high" />
+        <p class="caption">— <em>Raphael Nieto, Owner &amp; Operator</em></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-cream">
+    <div class="a-col">
+      <h2 class="center"><strong>“Life gives you but a few chances. It’s a </strong><span class="red"><strong>dream come true</strong></span><strong> to bring about special moments through Neapolitan pizza.”</strong></h2>
+      <p>Soci (Italian for “partners”) was started because I missed the pizza I grew up loving in New York but couldn’t find after moving to North Carolina. Noticing the beautiful farms in the Triangle, I wanted to make Neapolitan pizza that represented local and Italian flavors.</p>
+      <p>In the fall of 2024, I began developing partnerships to source the best local and imported ingredients while simultaneously planning the design and construction of a vintage Piaggio Ape food truck in my garage. After a year of building and testing recipes, Soci is now ready to bring true-quality <em>private-only</em> mobile pizza catering to the Triangle.</p>
+      <p>In New York City, I ran a restaurant that gathered 500+ 4.5-star reviews and earned accolades from <em>The New York Times</em>, <em>Time Out</em>, and <em>Eater</em>. For the Ape build, I leveraged my background in product design and learned a few things along the way.<br /><br />—<em> Raphael Nieto, Owner &amp; Operator</em></p>
+      <div class="center"><a href="/book-now" class="btn btn-lg btn-outline">Hire Pizza Truck</a></div>
+    </div>
+  </section>
+
+  <section class="a-build bg-white">
+    <div class="a-col">
+      <h2><strong>About the build.</strong></h2>
+      <p>After running into overpriced, poorly built food trucks, I decided to design and build my own, a 1991 Piaggio Ape mini food truck, custom-engineered for <em>private-only</em> mobile pizza catering. Every inch was handcrafted in my Pittsboro garage using American aluminum, modular design, and a Gozney pizza oven mounted above the cab, a placement now <em>patent pending</em>.</p>
+      <p>This one-year solo build became both the heart of Soci Pizza and the prototype for future Soci Build projects: micro food trucks designed for performance, beauty, and real business use. Need a Piaggio Ape food truck? Visit <a href="/soci-build">Soci Build</a>.</p>
+      <div class="steps">
+        {build.map(([src, alt, cap]) => (
+          <div><img src={src} alt={alt} loading="lazy" /><p set:html={cap} /></div>
+        ))}
+      </div>
+    </div>
+    <div class="b-cta center">
+      <p><strong>Looking for a Piaggio Ape food truck? </strong>Click below to visit Soci Pizza Build.</p>
+      <a href="/soci-build" class="btn btn-lg">Build me a mini food truck</a>
+      <p class="phone">Or text/call <a href="tel:6672904315">(667) 290-4315</a></p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .a-hero { padding: 145px 0 54px; color: var(--white); }
+  .a-grid { display: grid; grid-template-columns: 37.8vw 41.75vw; column-gap: 4.6vw; align-items: center; }
+  .a-hero h1 { margin-bottom: 0.55em; }
+  .a-hero h4 { max-width: 34vw; }
+  .yellow { color: var(--yellow); }
+  .a-hero img { width: 100%; height: calc(15vw + 249px); object-fit: cover; border-radius: 16px; }
+  .caption { text-align: right; margin: 23px 0 0; }
+
+  .a-col { width: 61vw; margin: 0 auto; }
+  .a-col h2 { margin-bottom: 1.25em; }
+  .a-col p { margin-bottom: 15px; }
+  .a-col p a { color: var(--green); }
+  .btn-outline { background: transparent; color: var(--red); border: 1px solid var(--red); font-weight: 400; margin-top: 30px; }
+
+  .a-build { padding: 5.75vw 0 8.25vw; }
+  .a-build h2 { margin-bottom: 0.7em; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 11px; margin-top: 10px; }
+  .steps img { width: 100%; aspect-ratio: 175 / 128; object-fit: cover; border-radius: 6px; margin-bottom: 11px; }
+  .b-cta { width: 30vw; min-width: 300px; margin: 60px auto 0; display: flex; flex-direction: column; align-items: center; }
+  .b-cta p { margin: 0 0 11px; }
+  .b-cta .btn { width: 100%; }
+  .phone { margin-top: 11px !important; }
+  .phone a { color: var(--green); }
+
+  @media (max-width: 860px) {
+    .a-hero { padding: 120px 0 48px; }
+    .a-grid { grid-template-columns: 1fr; row-gap: 28px; }
+    .a-hero h4 { max-width: none; }
+    .a-hero img { height: auto; aspect-ratio: 7 / 6; }
+    .a-col { width: auto; padding: 0 24px; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .b-cta { width: auto; padding: 0 24px; }
+  }
+</style>

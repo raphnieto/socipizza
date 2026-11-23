@@ -1,1 +1,9 @@
-{ "cleanUrls": true, "trailingSlash": false }
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/blog/category/:slug*", "destination": "/blog", "permanent": true },
+    { "source": "/blog/tag/:slug*", "destination": "/blog", "permanent": true }
+  ]
+}

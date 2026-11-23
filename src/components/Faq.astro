@@ -1,9 +1,10 @@
 ---
-const { title, items } = Astro.props as { title: string; items: [string, string][] };
+const { title = '', items, more = 'Check out our <a href="https://www.socipizza.com/faq">FAQ page</a> for more questions &amp; answers.' } = Astro.props as { title?: string; items: [string, string][]; more?: string };
 ---
 <section class="section bg-white faq-section">
   <div class="faq-wrap">
-    <h2><strong>{title}</strong></h2>
+    {title && <h2><strong>{title}</strong></h2>}
+    <slot name="top" />
     <div class="faq">
       {items.map(([q, a], i) => (
         <details open={i === 0}>
@@ -12,7 +13,8 @@ const { title, items } = Astro.props as { title: string; items: [string, string]
         </details>
       ))}
     </div>
-    <p class="faq-more">Check out our <a href="https://www.socipizza.com/faq">FAQ page</a> for more questions &amp; answers.</p>
+    {more && <p class="faq-more" set:html={more} />}
+    <slot />
   </div>
 </section>
 <style>
@@ -32,6 +34,6 @@ const { title, items } = Astro.props as { title: string; items: [string, string]
   .answer { padding: 14px 0 28px; max-width: 70%; }
   .answer :global(p:last-child) { margin-bottom: 0; }
   .faq-more { margin-top: 3vw; }
-  .faq-more a, .answer :global(a) { color: var(--green); }
+  .faq-more :global(a), .answer :global(a) { color: var(--green); }
   @media (max-width: 860px) { .faq-wrap { width: auto; padding: 0 24px; } .answer { max-width: none; } }
 </style>

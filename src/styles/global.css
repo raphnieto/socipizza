@@ -82,3 +82,15 @@ p { margin: 0 0 1em; }
   .logo img { width: 80px; }
   .btn-lg { width: auto; min-width: 0; min-height: 54px; padding: 0 32px; }
 }
+
+/* Header themes (match Squarespace section themes per page) */
+.main-nav a.active { background-image: linear-gradient(currentColor, currentColor); background-size: 100% 1px; background-repeat: no-repeat; background-position: 0 100%; padding-bottom: 2px; }
+.hdr-white .site-header { background: var(--white); }
+.hdr-green .site-header, .hdr-dark .site-header { background: transparent; position: absolute; left: 0; right: 0; top: 34px; }
+.hdr-green .site-header a, .hdr-dark .site-header a:not(.btn) { color: var(--white); }
+.hdr-green .logo img, .hdr-dark .logo img { filter: brightness(0) invert(1); }
+.hdr-green .announce, .hdr-dark .announce { background: var(--white); color: var(--black); }
+.hdr-green .announce button, .hdr-dark .announce button { color: var(--black); }
+.hdr-green .site-header .btn { background: var(--yellow); color: var(--black); }
+.hdr-green .mobile-nav summary span, .hdr-dark .mobile-nav summary span { background: var(--white); }
+.hdr-green .mobile-nav nav a, .hdr-dark .mobile-nav nav a { color: var(--black); }

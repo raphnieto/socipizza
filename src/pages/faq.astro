@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+const faqs: [string, string][] = [
+  ['How far in advance should I book my pizza truck catering?', '<p>Reach out anytime, but we recommend booking our vintage pizza truck at least 6-8 months in advance, especially for weekends, weddings, and peak spring–summer dates in Raleigh-Durham, Charlotte, and select destinations across North Carolina.</p>'],
+  ['What’s included in your pizza catering experience?', '<ul><li>The right amount of staff members</li></ul><ul><li>Full setup and cleanup</li><li>Unlimited fresh Neapolitan pizzas</li><li>Napkins, plates, and utensils</li></ul><p>Optional add-ons include Caprese skewers, salad, and cannoli.</p>'],
+  ['What is the minimum to hire you?', '<p>Please visit our <a href="/pricing">pricing page</a> for details on all packages.</p>'],
+  ['What’s the setup process for your pizza food truck?', '<p>Our process is simple. We arrive 2–4 hours before service (depending on event size and details) to set up and begin prep. Service is buffet-style: guests choose their pizzas and sides with staff assistance, and pizzas are baked fresh and replenished continuously. After service, we handle cleanup and head out.</p>'],
+  ['Do you travel outside the Triangle for pizza catering?', '<p>Yes. Soci Pizza is based in the Triangle and regularly serves Raleigh, Durham, Chapel Hill, Cary, Pittsboro, Apex, Hillsborough, and surrounding areas. We also travel for select events outside the Triangle, including Charlotte and other North Carolina destinations.<br><br>If you\'re outside our typical service area, contact <a href="mailto:book@socipizza.com">book@socipizza.com</a> for a custom travel quote.</p>'],
+  ['What if it rains or weather is bad?', '<p>We can typically operate in light rain using our truck and tents. If severe weather (such as heavy rain or high winds) makes service unsafe, we\'ll work with you to reschedule, subject to availability. We also recommend having a nearby covered backup area where we can safely operate if needed.</p>'],
+  ['Can I cancel or reschedule my pizza truck booking?', '<p>If you need to reschedule, your deposit may be transferred to a new date (subject to availability) with at least 7 days’ notice. One reschedule per booking is allowed. <br><br>All deposits are non-refundable. This is because deposits secure your date and allow us to turn away other requests, so backing out affects our ability to book other customers.</p>'],
+  ['Can I customize toppings or menu options?', '<p>We do our best! While staying true to Neapolitan methods, we can adjust toppings, offer vegetarian options, and occasionally accommodate special requests. Gluten-free dough is not currently available.</p>'],
+  ['Do you provide staff for serving and slicing?', '<p>Yes. Our staff handles pizza cooking, slicing, and guest service. Larger events may include additional staff to help manage lines and cleanup.</p>'],
+  ['Do you provide drinks?', '<p>No. However, we’ve partnered with Vita Mielie, another vintage Piaggio Ape that offers elegant beverage in the triangle, we strongly recommend you check them out! <a href="https://www.vitamielie.com/">https://www.vitamielie.com/</a> </p>'],
+  ['Do you require a deposit or contract? What are the payment terms?', '<p>A 50% deposit is required at booking, with the remaining balance due before the event. Your invoice and email confirmation act as the booking agreement. A written contract is available upon request.</p>'],
+  ['Where does Soci pizza provide pizza truck catering in North Carolina?', '<p>Soci Pizza is based in Pittsboro and proudly serves Raleigh, Durham, Chapel Hill, Cary, Apex, Pittsboro, Hillsborough, and communities throughout the Triangle. We also provide pizza catering in Charlotte and travel to select destinations across North Carolina for weddings, private parties, corporate events, and rehearsal dinners. If you\'re outside our typical service area, contact us for a custom travel quote.</p>'],
+  ['Can you accommodate vegan, or gluten-free guests?', '<p>We can prepare vegan Margherita pizzas for a limited number of guests.</p><p>Unfortunately, we are unable to offer gluten-free pizzas due to the high risk of cross-contamination with wheat flour. <br><br>If you have a few guests who require gluten-free options, we recommend ordering a few pizzas from a local pizzeria that specializes in gluten-free preparation.</p>'],
+  ['Do you need access to electricity or water?', '<p>No. We bring our own silent generator, which powers all of our equipment and provides hot water. The only thing we ask is access to a restroom for our staff during the event.</p>'],
+  ['Can you serve indoors?', '<p>Yes, we can serve guests indoors. However, for safety reasons, our propane ovens and all cooking equipment must remain outdoors in a well-ventilated area. Our service is buffet-style, so ideally we would always be set up for outdoor service. No matter your setup, we will always make an effort to accommodate your request!</p>'],
+  ['Are there any hidden fees?', '<p>Absolutely not. Our pricing is transparent, and gratuity is appreciated, but always optional.</p><p>Travel within the Triangle is included; extended NC travel ranges from $150 to $600.</p>'],
+];
+---
+<Base
+  title="FAQ – Pizza Truck Catering & Mobile Pizza Truck Questions — Soci Pizza"
+  description="Find answers to your pizza truck catering questions: setup, menu, staffing, weather policy, travel, cancellation, and more — for Soci's mobile pizza services in Raleigh-Durham, Charlotte, and select North Carolina destinations."
+  header="dark"
+>
+  <section class="banner">
+    <img src="/images/soci-pizza-catering-faq-banner.webp" alt="" fetchpriority="high" />
+    <h1><strong>Frequently Asked Questions.</strong></h1>
+  </section>
+  <Faq items={faqs} more="">
+    <div class="ready center">
+      <p><strong>Ready to <em>elevate</em> your event?</strong></p>
+      <a href="/book-now" class="btn btn-lg">Reserve your date</a>
+      <p class="phone">Or text/call <a href="tel:6672904315">(667) 290-4315</a></p>
+    </div>
+  </Faq>
+</Base>
+
+<style>
+  .banner::after { content: ''; position: absolute; inset: 0; background: #000; opacity: 0.15; }
+  .banner > *:not(img) { z-index: 1; }
+  .banner { position: relative; height: calc(45.75vw - 34px); min-height: 360px; background: #000; display: flex; align-items: center; justify-content: center; padding-top: 60px; overflow: hidden; }
+  .banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .banner h1 { position: relative; color: var(--white); text-align: center; margin: 0; padding: 0 24px; }
+  .ready { margin-top: 46px; display: flex; flex-direction: column; align-items: center; }
+  .ready p { margin: 0 0 11px; }
+  .ready .btn { width: 22.5vw; min-width: 220px; }
+  .phone { margin-top: 11px !important; }
+  .phone a { color: var(--green); }
+</style>

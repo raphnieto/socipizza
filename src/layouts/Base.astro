@@ -3,8 +3,8 @@ import Social from '../components/Social.astro';
 import { img, sized } from '../data/images';
 import '../styles/global.css';
 
-interface Props { title: string; description: string; ogTitle?: string; ogDescription?: string; }
-const { title, description, ogTitle = title, ogDescription = description } = Astro.props;
+interface Props { title: string; description?: string; ogTitle?: string; ogDescription?: string; header?: 'cream' | 'white' | 'green' | 'dark'; ogType?: string; ogImage?: string; extraLd?: object[]; }
+const { title, description = '', ogTitle = title, ogDescription = description, header = 'cream', ogType = 'website', ogImage, extraLd = [] } = Astro.props;
 let path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '');
 const canonical = 'https://www.socipizza.com' + (path || '/');
 const nav = [
@@ -20,20 +20,21 @@ const ldBusiness = { address: '', image: 'https://www.socipizza.com/images/local
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <meta name="description" content={description} />
+    {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" href={sized(img.favicon, 100)} />
     <meta property="og:site_name" content="Soci Pizza" />
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content={'https://www.socipizza.com' + img.ogImage} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:image" content={'https://www.socipizza.com' + (ogImage || img.ogImage)} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
     <script type="application/ld+json" set:html={JSON.stringify(ldWebsite)} />
     <script type="application/ld+json" set:html={JSON.stringify(ldBusiness)} />
+    {extraLd.map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)}
     <!-- Google Ads (same account as the Squarespace site) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17667807917"></script>
     <script is:inline>
@@ -43,7 +44,7 @@ const ldBusiness = { address: '', image: 'https://www.socipizza.com/images/local
       gtag('config', 'AW-17667807917');
     </script>
   </head>
-  <body>
+  <body class={`hdr-${header}`}>
     <div class="announce" id="announce">
       <p><strong>2026/27 weekends are filling fast. </strong><a href="/book-now"><strong>Book now</strong></a><strong>.</strong></p>
       <button type="button" aria-label="Close Announcement" onclick="document.getElementById('announce').remove()">×</button>
@@ -52,7 +53,7 @@ const ldBusiness = { address: '', image: 'https://www.socipizza.com/images/local
       <div class="wrap header-inner">
         <a href="/" class="logo"><img src={sized(img.logo, 500)} alt="Soci Pizza" width="120" height="60" /></a>
         <nav class="main-nav" aria-label="Main">
-          {nav.map(([label, href]) => <a href={href}>{label}</a>)}
+          {nav.map(([label, href]) => <a href={href} class={path === href ? 'active' : undefined} aria-current={path === href ? 'page' : undefined}>{label}</a>)}
           <a href="/book-now" class="btn btn-sm">Book now</a>
         </nav>
         <details class="mobile-nav">

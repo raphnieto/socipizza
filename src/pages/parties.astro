@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Landing from '../components/Landing.astro';
+
+const reasons: [string, string][] = [
+  ['1. Transparent pricing. No surprises.', 'All-inclusive pricing that makes planning easy and stress-free — no awkward add-ons, no last-minute fees, and optional gratuity. Clear pricing from day one. <a href="#pricing">Pricing details below</a><em>.</em>'],
+  ['2. A show-stopping setup that runs itself', 'Our vintage Italian pizza truck brings instant vibe and charm, fully self-contained with power, water, and professional equipment. We handle everything from setup to cleanup.'],
+  ['3. Crowd-pleasing pizzas done right', 'Timeless Neapolitan recipes made with local ingredients and select Italian imports. Familiar enough to love instantly, special enough to feel elevated.'],
+  ['4. Calm, confident execution', 'Italian roots paired with years of New York restaurant ownership mean smooth pacing, steady service, and zero guesswork — even with large 100+ guests and fast-moving parties.'],
+  ['5. Exceptional dough, made for people to talk about', 'Our 72-hour, enzyme-rich dough is made with fresh yeast in an exclusive partnership with <strong>Guglhupf</strong>, delivering true Neapolitan flavor that guests immediately notice (and remember).'],
+];
+
+const faqs: [string, string][] = [
+  ['Is a pizza truck a good option for a backyard or home party?', '<p>Yes. Our pizza truck is fully self-contained and works great for backyard parties, driveway setups, and private homes across Raleigh-Durham, Charlotte &amp; select North Carolina destinations. We need very little space and clearance to operate.</p>'],
+  ['What’s included with your pizza catering for parties?', '<p>Our party pizza catering is fully staffed and all-inclusive. Every booking includes professional staff, full setup and cleanup, and unlimited freshly baked Neapolitan pizzas served from our vintage pizza truck. Optional add-ons include salads, caprese skewers, and cannoli.</p>'],
+  ['How many pizzas can you serve at a party?', '<p>We serve continuously throughout your event, so guests are never waiting long. For parties of <strong>25–150+ guests</strong>, we adjust staffing, pacing, and oven setup to match your crowd and menu. For larger parties, we add <strong>additional pizzaioli and service staff</strong> to keep pizzas moving quickly and lines flowing smoothly.</p>'],
+  ['Can you really serve 100+ people from a small pizza truck for parties?', '<p>Absolutely. While our vintage Italian pizza truck has a small footprint, it’s designed for efficiency. For larger parties, we add separate tent(s), extra pizzaioli, additional ovens, and dedicated servers to keep pizzas coming out fast and guests moving smoothly. </p>'],
+  ['How much does it cost to hire you for a party?', '<p>Please visit our <a href="https://www.socipizza.com/pricing">pricing page</a> for details on all packages.</p>'],
+  ['Do you cater small private parties?', '<p>We typically cater private parties of 25–150+ guests. If you’re hosting a smaller gathering, reach out, we’re happy to see if your event is a good fit.</p>'],
+  ['What happens if it rains during my party?', '<p>We can typically operate in light rain using our truck and tents. If severe weather (such as heavy rain or high winds) makes service unsafe, we\'ll work with you to reschedule, subject to availability. We also recommend having a nearby covered backup area where we can safely operate if needed.</p>'],
+  ['How far in advance should I book a pizza truck for a party?', '<p>We recommend booking our pizza truck catering as soon as you have a date in mind, ideally 6-8 months before the event. While some private parties can be booked a few weeks out, popular weekends in Raleigh-Durham and Charlotte often fill months in advance, especially during spring, summer, and fall.</p>'],
+];
+---
+<Base
+  title="Party Pizza Catering in Raleigh, Durham & Chapel Hill — Soci Pizza"
+  description="Mobile pizza truck catering for birthday parties, backyard gatherings, and private events in Raleigh, Durham, Chapel Hill, Charlotte & select North Carolina destinations."
+>
+  <Landing
+    hero={{ img: '/images/backyard-engagement-pizza-party-soci-nc.webp', alt: 'A backyard engagement party in Hillsboro, NC with Soci Pizza truck.',
+      h1: '<span class="red"><strong>Pizza truck catering</strong></span><strong> for parties that wow guests.</strong>',
+      h4: 'Pizza catering for birthdays, baby showers, and other celebrations across Raleigh-Durham, Charlotte &amp; select North Carolina destinations.',
+      btn: 'Check availability', note: '✓ Effortless ✓ Crowd-pleasing' }}
+    reviews={{ h2: 'Loved by party hosts across the Triangle ❤️', h3: 'Real reviews from people who trusted Soci Pizza.' }}
+    five={{ h2: '5 reasons hosts choose Soci Pizza for their party', h3: 'The pizza food truck guests can’t stop talking about.',
+      img: '/images/parties.webp', aspect: '593 / 496', reasons }}
+    instaSub="See real pizza catering for birthday parties, backyard gatherings, and private events across Raleigh-Durham, Charlotte &amp; select North Carolina destinations."
+    faq={{ title: 'Party pizza catering FAQ', items: faqs, more: 'Check out our <a href="https://www.socipizza.com/faq">FAQ section</a> for more answers about pizza truck catering.' }}
+  />
+</Base>

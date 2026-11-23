@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import Landing from '../components/Landing.astro';
+
+const reasons: [string, string][] = [
+  ['1. Simple pricing = easy budgeting', 'All-inclusive pricing makes office catering easy and stress-free, with no awkward last-minute fees. Clear pricing from day one helps your budget stay on track.'],
+  ['2. A fun setup that runs itself', 'Our vintage Italian pizza truck brings charm and excitement to your corporate lunch or team event. Self-contained with power, water, and professional equipment. We handle setup, service, and cleanup.'],
+  ['3. Pizza everyone at the office actually enjoys', 'Office catering needs to please a wide range of tastes. Our corporate pizza catering focuses on approachable, high-quality Neapolitan pizza that works for teams of all sizes.'],
+  ['4. Reliable service for professional settings', 'Corporate events run on schedules, and so do we. From office lunches to larger team events, our mobile pizza catering is paced, organized, and dependable, so your event stays smooth.'],
+  ['5. Authentic Neapolitan pizza for great corporate catering', 'Our Neapolitan pizza is made with a long-fermented dough and cooked on-site in our pizza food truck, delivering consistent quality that stands out from standard office catering. It’s a simple upgrade that makes corporate lunches feel intentional and memorable.'],
+];
+
+const faqs: [string, string][] = [
+  ['How does corporate pizza catering work for offices and company events?', '<p>Our corporate pizza catering is fully managed from start to finish. We arrive with a self-contained pizza food truck, handle setup and cleanup, and serve fresh Neapolitan pizza on-site so your team can focus on the event, not logistics. It works seamlessly for office lunches, team celebrations, client events, and company parties in Raleigh-Durham, Charlotte, and select destinations across North Carolina.</p>'],
+  ['What’s included with your corporate pizza catering?', '<p>Every corporate booking is all-inclusive. You get professional staff, full setup and breakdown, and continuous service of freshly baked Neapolitan pizzas from our vintage Italian pizza truck. Optional add-ons like salads, Caprese skewers, and cannoli are available for more formal corporate events or client-facing gatherings.</p>'],
+  ['How many employees or guests can you serve at a corporate event?', '<p>We regularly cater corporate events for 50–150+ people. Service is continuous, so teams aren’t stuck waiting in long lines. For larger corporate gatherings, we scale staffing, ovens, and service flow to keep pizza moving efficiently and on schedule.</p>'],
+  ['Can your pizza catering truck really handle large corporate events?', '<p>Yes. Our pizza truck is compact but purpose-built for high-volume service. For larger corporate events, we add tents, extra pizzaioli, additional ovens, and dedicated servers to maintain fast output without disrupting your office, parking lot, or event space.</p>'],
+  ['Is a pizza truck a good option for office parking lots or corporate campuses?', '<p>Absolutely. Our pizza food truck is fully self-contained with power and water, making it ideal for office parking lots, courtyards, warehouses, campuses, and outdoor corporate spaces. We require minimal space and can operate efficiently without interfering with normal business operations.</p>'],
+  ['Do you cater smaller office teams or departments?', '<p>If you can meet our minimum, absolutely! Please visit our pizza catering <a href="/pricing">pricing page</a> for more details.</p>'],
+  ['What happens if it rains during a corporate event?', '<p>We can typically operate in light rain using our truck and tents. If severe weather (such as heavy rain or high winds) makes service unsafe, we\'ll work with you to reschedule, subject to availability. We also recommend having a nearby covered backup area where we can safely operate if needed.</p>'],
+];
+---
+<Base
+  title="Corporate Pizza Catering for Office Events in Raleigh–Durham — Soci Pizza"
+  description="Mobile pizza truck catering for office lunches, team events, and company gatherings in Raleigh, Durham, Chapel Hill, Charlotte & select North Carolina destinations."
+>
+  <Landing
+    hero={{ img: '/images/corporate-pizza-catering-soci-raleigh-nc.webp', alt: '',
+      h1: '<span class="red"><strong>Corporate pizza catering</strong></span><strong> your team will love.</strong>',
+      h4: 'Bring your team together with our pizza truck. Perfect for office lunches in Raleigh-Durham, Charlotte &amp; select North Carolina destinations.',
+      btn: 'Request a quote  🤝', note: '✓ Team-approved ✓ Hassle-free' }}
+    reviews={{ h2: 'Loved by corporate teams across the Triangle ❤️', h3: 'Real companies trust Soci Pizza for their corporate pizza catering events.' }}
+    five={{ h2: '5 Reasons companies choose Soci Pizza for corporate events', h3: 'The pizza catering truck offices keep talking about.',
+      img: '/images/corporate.webp', aspect: '547 / 462', narrow: true, reasons }}
+    instaSub="See real pizza catering for team lunches, backyard gatherings, and private events in Raleigh-Durham, Charlotte, and select North Carolina destinations."
+    faq={{ title: 'Corporate pizza catering FAQ', items: faqs, more: 'Check out our <a href="https://www.socipizza.com/faq">FAQ section</a> for more answers about pizza truck catering.' }}
+  />
+</Base>

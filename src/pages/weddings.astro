@@ -1,18 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import Rating from '../components/Rating.astro';
-import PricingSection from '../components/PricingSection.astro';
-import Instagram from '../components/Instagram.astro';
-import Faq from '../components/Faq.astro';
-import Cta from '../components/Cta.astro';
+import Landing from '../components/Landing.astro';
 
-const reviews = [
-  { name: 'Annmarie Klapper', img: '/images/annie-soci-pizza-customer-in-chapel-hill-nc.webp', quote: '“Enchanting, delicious. An experience that instantly elevates any gathering.”', href: 'https://share.google/VZ2poGUfvyTA4J0fn', cls: 'rv-yellow' },
-  { name: 'Ruth Stewart', img: '/images/ruth-steward-soci-pizza-catering-customer-sanford-nc.webp', quote: '“Had a great experience with Soci Pizza. The pizza is divine. Highly recommend!”', href: 'https://share.google/VZ2poGUfvyTA4J0fn', cls: 'rv-pink' },
-  { name: 'Anna Pickens', img: '/images/anna-louise-pickens-headshot.webp', quote: '“We had a wonderful experience with Soci, and the Pizza was delicious!”', href: 'https://share.google/YkZVDjftb8AB2oncS', cls: 'rv-green' },
-];
-
-const reasons = [
+const reasons: [string, string][] = [
   ['1. Show-stopping experience for your guests', 'From backyard weddings to rustic barns, our vintage mini pizza food truck creates a fun, memorable centerpiece your guests will love.'],
   ['2. Stress-free catering for 100+ guests', 'We keep the pizza flowing smoothly, so you can relax and enjoy your day, No bottlenecks, no surprises. Call us to learn about our service flow.'],
   ['3. Custom menus that match your vibe', 'Our menu is very popular but we are flexible! Depending on availability we work with you to create a pizza catering menu that fits your event.'],
@@ -34,117 +24,15 @@ const faqs: [string, string][] = [
   title="Wedding Pizza Catering in Raleigh, Durham & Chapel Hill — Soci Pizza"
   description="Mobile wedding pizza catering with a vintage Italian pizza truck. Authentic Neapolitan pizzas made with 72-hour dough for weddings in Raleigh, Durham, Chapel Hill, Charlotte & select North Carolina destinations."
 >
-  <!-- Hero -->
-  <section class="w-hero bg-cream">
-    <div class="wrap w-hero-grid">
-      <div class="w-hero-img">
-        <img src="/images/weddings.webp" alt="" fetchpriority="high" />
-      </div>
-      <div class="w-hero-text">
-        <Rating />
-        <h1><span class="red"><strong>Neapolitan wedding pizza</strong></span><strong> inspired by what you love.</strong></h1>
-        <h4>From backyards to rustic barns, we serve 100+ guests smoothly in Raleigh-Durham, Charlotte &amp; select North Carolina destinations.</h4>
-        <div class="w-cta">
-          <a href="/book-now" class="btn btn-lg">Start the conversation</a>
-          <p class="btn-note">✓ Tasting available ✓ Stress-free</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reviews -->
-  <section class="section bg-white">
-    <div class="wrap">
-      <div class="center rv-intro">
-        <h2><strong>Triangle couples love us ❤️</strong></h2>
-        <h3>Real reviews from people who trusted Soci Pizza.</h3>
-      </div>
-      <div class="rv-grid">
-        {reviews.map((r) => (
-          <div class={`rv ${r.cls}`}>
-            <img src={r.img} alt="" loading="lazy" />
-            <h4><strong>{r.name}</strong></h4>
-            <p class="rv-stars">★★★★★</p>
-            <p class="rv-quote">{r.quote}</p>
-            <p class="rv-link"><a href={r.href} target="_blank" rel="noopener">Read full Google review</a></p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 5 reasons -->
-  <section class="section bg-cream">
-    <div class="five">
-      <h2><strong>5 reasons couples choose Soci Pizza for their big day</strong></h2>
-      <h3>The pizza truck for couples who want more than pizza.</h3>
-      <img src="/images/private-wedding-pizza-truck-raleigh-nc.webp" alt="" loading="lazy" />
-      <div class="reasons">
-        {reasons.map(([t, d]) => (<><h4><strong>{t}</strong></h4><p>{d}</p></>))}
-      </div>
-    </div>
-    <div class="five-cta">
-      <a href="/book-now" class="btn btn-lg">Start the conversation</a>
-      <p class="btn-note">✓ Tasting available ✓ Stress-free</p>
-    </div>
-  </section>
-
-  <PricingSection bg="bg-white" />
-
-  <Instagram sub="See real pizza catering service, private events, and behind-the-scenes moments across Raleigh-Durham, Charlotte, and select North Carolina destinations." />
-
-  <Faq title="Wedding pizza FAQ" items={faqs} />
-
-  <Cta bg="bg-yellow" btn="btn-green" />
+  <Landing
+    hero={{ img: '/images/weddings.webp', alt: '', tall: true, wide: true,
+      h1: '<span class="red"><strong>Neapolitan wedding pizza</strong></span><strong> inspired by what you love.</strong>',
+      h4: 'From backyards to rustic barns, we serve 100+ guests smoothly in Raleigh-Durham, Charlotte &amp; select North Carolina destinations.',
+      btn: 'Start the conversation', note: '✓ Tasting available ✓ Stress-free' }}
+    reviews={{ h2: 'Triangle couples love us ❤️', h3: 'Real reviews from people who trusted Soci Pizza.', lastLink: 'https://share.google/YkZVDjftb8AB2oncS' }}
+    five={{ h2: '5 reasons couples choose Soci Pizza for their big day', h3: 'The pizza truck for couples who want more than pizza.',
+      img: '/images/private-wedding-pizza-truck-raleigh-nc.webp', aspect: '593 / 530', reasons }}
+    instaSub="See real pizza catering service, private events, and behind-the-scenes moments across Raleigh-Durham, Charlotte, and select North Carolina destinations."
+    faq={{ title: 'Wedding pizza FAQ', items: faqs }}
+  />
 </Base>
-
-<style>
-  /* Measured from the live /weddings page at 1200 & 1440px */
-  .w-hero { padding: 70px 0 8.7vw; }
-  .w-hero-grid { display: grid; grid-template-columns: 41.75vw 41.8vw; column-gap: 4.65vw; align-items: center; }
-  .w-hero-img img { width: 100%; height: calc(18.3vw + 361px); object-fit: cover; border-radius: 16px; }
-  .w-hero-text :global(.rating), .w-hero-text h4 { max-width: 34vw; }
-  .w-hero-text h1 { margin-bottom: 0.35em; }
-  .w-cta { display: flex; flex-direction: column; width: 22.5vw; min-width: 220px; margin-top: 10px; }
-  .w-cta .btn { width: 100%; }
-  .w-cta .btn-note { text-align: center; }
-
-  .rv-intro { max-width: 45.3vw; margin: 0 auto 56px; }
-  .rv-intro h2 { margin-bottom: 0.2em; }
-  .rv-grid { display: grid; grid-template-columns: repeat(3, 22.1vw); gap: 1.25vw; justify-content: center; }
-  .rv { min-height: calc(18.3vw + 131px); border-radius: 16px; padding: 31px 20px 28px; text-align: center; display: flex; flex-direction: column; align-items: center; box-shadow: 2px 3px 6px rgba(0,0,0,0.12); }
-  .rv-yellow { background: #fff9e0; border: 1px solid #efe2a9; }
-  .rv-pink { background: #fff0f0; border: 1px solid #f1d1d1; }
-  .rv-green { background: #f4fee1; border: 1px solid #d9ebb7; }
-  .rv img { width: calc(5.83vw + 5px); height: calc(5.83vw + 5px); border-radius: 50%; object-fit: cover; margin-bottom: 28px; }
-  .rv h4 { margin: 0; }
-  .rv-stars { color: var(--red); margin: 0 0 22px; }
-  .rv-quote { font-size: 14px; line-height: 1.6; max-width: 169px; max-width: 14vw; margin: 0 0 4px; }
-  .rv-link { font-size: 14px; margin: auto 0 0; }
-  .rv-link a { color: var(--green); }
-
-  .five { margin-left: 27.15vw; width: 49.5vw; }
-  .five h2 { margin-bottom: 0.4em; }
-  .five h3 { margin-bottom: 25px; }
-  .five img { width: 100%; height: calc(31.7vw + 150px); object-fit: cover; border-radius: 16px; margin-bottom: 43px; }
-  .reasons { max-width: 45.6vw; }
-  .reasons h4 { margin: 0 0 6px; }
-  .reasons p { margin: 0 0 10px; }
-  .five-cta { display: flex; flex-direction: column; align-items: center; width: 22.5vw; min-width: 220px; margin: 43px auto 0; }
-  .five-cta .btn { width: 100%; }
-  .five-cta .btn-note { text-align: center; }
-
-  @media (max-width: 860px) {
-    .w-hero { padding: 24px 0 56px; }
-    .w-hero-grid { grid-template-columns: 1fr; row-gap: 32px; }
-    .w-hero-img img { height: auto; aspect-ratio: 4 / 5; }
-    .w-hero-text :global(.rating), .w-hero-text h4, .rv-intro { max-width: none; }
-    .rv-grid { grid-template-columns: 1fr; gap: 16px; }
-    .rv { min-height: 0; }
-    .rv img { width: 80px; height: 80px; }
-    .rv-quote { max-width: 260px; }
-    .five { margin: 0 24px; width: auto; }
-    .five img { height: auto; aspect-ratio: 9 / 8; }
-    .reasons { max-width: none; }
-  }
-</style>

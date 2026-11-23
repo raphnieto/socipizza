@@ -6,7 +6,7 @@ const { sub } = Astro.props;
 <section class="section bg-green">
   <div class="wrap center">
     <h1 class="insta-title"><strong>Follow <a href="https://www.instagram.com/socipizza" target="_blank" rel="noopener" class="yellow-link">@SociPizza</a> on Instagram</strong></h1>
-    <h4 class="insta-sub">{sub}</h4>
+    <h4 class="insta-sub" set:html={sub} />
     <div class="insta-grid">
       {img.insta.map((p) => (
         <a href={p.href} target="_blank" rel="noopener"><img src={p.src} alt="Soci Pizza on Instagram" loading="lazy" /></a>
