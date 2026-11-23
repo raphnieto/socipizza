@@ -61,7 +61,8 @@ p { margin: 0 0 1em; }
 }
 
 /* Sections */
-.section { padding: 80px 0; }
+.section { padding: 6.6vw 0; }
+@media (max-width: 860px) { .section { padding: 56px 0; } }
 .bg-cream { background: var(--cream); }
 .bg-white { background: var(--white); }
 .bg-green { background: var(--green); color: var(--white); }

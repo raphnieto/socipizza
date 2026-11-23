@@ -1,0 +1,37 @@
+---
+const { title, items } = Astro.props as { title: string; items: [string, string][] };
+---
+<section class="section bg-white faq-section">
+  <div class="faq-wrap">
+    <h2><strong>{title}</strong></h2>
+    <div class="faq">
+      {items.map(([q, a], i) => (
+        <details open={i === 0}>
+          <summary><h4>{q}</h4><span class="plus" aria-hidden="true"></span></summary>
+          <div class="answer" set:html={a} />
+        </details>
+      ))}
+    </div>
+    <p class="faq-more">Check out our <a href="https://www.socipizza.com/faq">FAQ page</a> for more questions &amp; answers.</p>
+  </div>
+</section>
+<style>
+  .faq-wrap { width: 53.3vw; margin: 0 auto; }
+  .faq-section { padding-bottom: 9vw; }
+  .faq-wrap > h2 { margin-bottom: 0.75em; }
+  .faq details { border-top: 1px solid #000; }
+  .faq details:last-child { border-bottom: 1px solid #000; }
+  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 0; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary h4 { margin: 0; }
+  .plus { position: relative; width: 14px; height: 14px; flex: none; }
+  .plus::before, .plus::after { content: ''; position: absolute; background: #000; }
+  .plus::before { left: 0; right: 0; top: 50%; height: 1px; }
+  .plus::after { top: 0; bottom: 0; left: 50%; width: 1px; }
+  details[open] .plus::after { display: none; }
+  .answer { padding: 14px 0 28px; max-width: 70%; }
+  .answer :global(p:last-child) { margin-bottom: 0; }
+  .faq-more { margin-top: 3vw; }
+  .faq-more a, .answer :global(a) { color: var(--green); }
+  @media (max-width: 860px) { .faq-wrap { width: auto; padding: 0 24px; } .answer { max-width: none; } }
+</style>

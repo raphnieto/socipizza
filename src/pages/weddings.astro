@@ -1,0 +1,150 @@
+---
+import Base from '../layouts/Base.astro';
+import Rating from '../components/Rating.astro';
+import PricingSection from '../components/PricingSection.astro';
+import Instagram from '../components/Instagram.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+
+const reviews = [
+  { name: 'Annmarie Klapper', img: '/images/annie-soci-pizza-customer-in-chapel-hill-nc.webp', quote: '“Enchanting, delicious. An experience that instantly elevates any gathering.”', href: 'https://share.google/VZ2poGUfvyTA4J0fn', cls: 'rv-yellow' },
+  { name: 'Ruth Stewart', img: '/images/ruth-steward-soci-pizza-catering-customer-sanford-nc.webp', quote: '“Had a great experience with Soci Pizza. The pizza is divine. Highly recommend!”', href: 'https://share.google/VZ2poGUfvyTA4J0fn', cls: 'rv-pink' },
+  { name: 'Anna Pickens', img: '/images/anna-louise-pickens-headshot.webp', quote: '“We had a wonderful experience with Soci, and the Pizza was delicious!”', href: 'https://share.google/YkZVDjftb8AB2oncS', cls: 'rv-green' },
+];
+
+const reasons = [
+  ['1. Show-stopping experience for your guests', 'From backyard weddings to rustic barns, our vintage mini pizza food truck creates a fun, memorable centerpiece your guests will love.'],
+  ['2. Stress-free catering for 100+ guests', 'We keep the pizza flowing smoothly, so you can relax and enjoy your day, No bottlenecks, no surprises. Call us to learn about our service flow.'],
+  ['3. Custom menus that match your vibe', 'Our menu is very popular but we are flexible! Depending on availability we work with you to create a pizza catering menu that fits your event.'],
+  ['4. Neapolitan pizza with a gourmet touch', 'Our 72-hour dough, made with Guglhupf and local + Italian ingredients, delivers unforgettable flavor you and your guests will remember.'],
+  ['5. Transparent worry-free pricing', 'Gratuity is welcome but not mandatory. We have no hidden fees, so you can plan confidently and focus on your celebration.'],
+];
+
+const faqs: [string, string][] = [
+  ['Can you really serve 100+ people from a tiny truck?', '<p>Absolutely! Depending on your wedding size, we set up additional pizzaiolo stations and multiple ovens to keep the crowd fed quickly and efficiently. We also bring servers to help the lines move smoothly, so you can just relax and enjoy your day. Our wedding pizza food truck may be compact, but it’s designed to make the most of its space, giving you a charming, small-footprint setup without compromising on speed or quality.</p>'],
+  ['Do you offer wedding pizza tastings?', '<p>Tastings are available <strong>for booked couples or serious inquiries</strong>, depending on availability and schedule. Many couples move forward based on reviews and photos, but we’re happy to discuss tastings during the planning process if it’s important to you.</p>'],
+  ['How much does it cost to hire you for a wedding?', '<p>Please visit our <a href="https://www.socipizza.com/pricing">pricing page</a> for details on all packages.</p>'],
+  ['Do you need power or water for the pizza truck?', '<p>Nope! Our pizza food truck is fully self-contained, with its own water supply and a quiet, compact generator. That means we can serve fresh pizza almost anywhere. no venue hookups required. Perfect for outdoor weddings across Raleigh-Durham, Charlotte, and select destinations throughout North Carolina.</p>'],
+  ['What’s included in your wedding pizza catering packages?', '<p>We’ll work with you to customize your pizza catering experience, and every package includes:</p><ul><li>The right amount of staff members</li><li>Full setup and cleanup</li><li>Unlimited fresh Neapolitan pizzas</li><li>Napkins, plates, and utensils</li></ul><p>Optional add-ons include Caprese skewers, salad, and cannoli.</p>'],
+  ['How far in advance should we book wedding pizza catering?', '<p>Reach out anytime, but we recommend booking our vintage pizza truck at least 2–3 months in advance, especially for weekends, weddings, and peak spring–summer dates in Raleigh-Durham, Charlotte, and select destinations across North Carolina.</p>'],
+  ['What happens if it rains on our wedding day?', '<p>We can typically operate in light rain using appropriate coverings. If severe weather (such as heavy rain or high winds) makes service unsafe, we\'ll work with you to reschedule, subject to availability. We also recommend having a nearby covered backup area where we can safely operate if needed.</p>'],
+];
+---
+<Base
+  title="Wedding Pizza Catering in Raleigh, Durham & Chapel Hill — Soci Pizza"
+  description="Mobile wedding pizza catering with a vintage Italian pizza truck. Authentic Neapolitan pizzas made with 72-hour dough for weddings in Raleigh, Durham, Chapel Hill, Charlotte & select North Carolina destinations."
+>
+  <!-- Hero -->
+  <section class="w-hero bg-cream">
+    <div class="wrap w-hero-grid">
+      <div class="w-hero-img">
+        <img src="/images/weddings.webp" alt="" fetchpriority="high" />
+      </div>
+      <div class="w-hero-text">
+        <Rating />
+        <h1><span class="red"><strong>Neapolitan wedding pizza</strong></span><strong> inspired by what you love.</strong></h1>
+        <h4>From backyards to rustic barns, we serve 100+ guests smoothly in Raleigh-Durham, Charlotte &amp; select North Carolina destinations.</h4>
+        <div class="w-cta">
+          <a href="/book-now" class="btn btn-lg">Start the conversation</a>
+          <p class="btn-note">✓ Tasting available ✓ Stress-free</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section bg-white">
+    <div class="wrap">
+      <div class="center rv-intro">
+        <h2><strong>Triangle couples love us ❤️</strong></h2>
+        <h3>Real reviews from people who trusted Soci Pizza.</h3>
+      </div>
+      <div class="rv-grid">
+        {reviews.map((r) => (
+          <div class={`rv ${r.cls}`}>
+            <img src={r.img} alt="" loading="lazy" />
+            <h4><strong>{r.name}</strong></h4>
+            <p class="rv-stars">★★★★★</p>
+            <p class="rv-quote">{r.quote}</p>
+            <p class="rv-link"><a href={r.href} target="_blank" rel="noopener">Read full Google review</a></p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 reasons -->
+  <section class="section bg-cream">
+    <div class="five">
+      <h2><strong>5 reasons couples choose Soci Pizza for their big day</strong></h2>
+      <h3>The pizza truck for couples who want more than pizza.</h3>
+      <img src="/images/private-wedding-pizza-truck-raleigh-nc.webp" alt="" loading="lazy" />
+      <div class="reasons">
+        {reasons.map(([t, d]) => (<><h4><strong>{t}</strong></h4><p>{d}</p></>))}
+      </div>
+    </div>
+    <div class="five-cta">
+      <a href="/book-now" class="btn btn-lg">Start the conversation</a>
+      <p class="btn-note">✓ Tasting available ✓ Stress-free</p>
+    </div>
+  </section>
+
+  <PricingSection bg="bg-white" />
+
+  <Instagram sub="See real pizza catering service, private events, and behind-the-scenes moments across Raleigh-Durham, Charlotte, and select North Carolina destinations." />
+
+  <Faq title="Wedding pizza FAQ" items={faqs} />
+
+  <Cta bg="bg-yellow" btn="btn-green" />
+</Base>
+
+<style>
+  /* Measured from the live /weddings page at 1200 & 1440px */
+  .w-hero { padding: 70px 0 8.7vw; }
+  .w-hero-grid { display: grid; grid-template-columns: 41.75vw 41.8vw; column-gap: 4.65vw; align-items: center; }
+  .w-hero-img img { width: 100%; height: calc(18.3vw + 361px); object-fit: cover; border-radius: 16px; }
+  .w-hero-text :global(.rating), .w-hero-text h4 { max-width: 34vw; }
+  .w-hero-text h1 { margin-bottom: 0.35em; }
+  .w-cta { display: flex; flex-direction: column; width: 22.5vw; min-width: 220px; margin-top: 10px; }
+  .w-cta .btn { width: 100%; }
+  .w-cta .btn-note { text-align: center; }
+
+  .rv-intro { max-width: 45.3vw; margin: 0 auto 56px; }
+  .rv-intro h2 { margin-bottom: 0.2em; }
+  .rv-grid { display: grid; grid-template-columns: repeat(3, 22.1vw); gap: 1.25vw; justify-content: center; }
+  .rv { min-height: calc(18.3vw + 131px); border-radius: 16px; padding: 31px 20px 28px; text-align: center; display: flex; flex-direction: column; align-items: center; box-shadow: 2px 3px 6px rgba(0,0,0,0.12); }
+  .rv-yellow { background: #fff9e0; border: 1px solid #efe2a9; }
+  .rv-pink { background: #fff0f0; border: 1px solid #f1d1d1; }
+  .rv-green { background: #f4fee1; border: 1px solid #d9ebb7; }
+  .rv img { width: calc(5.83vw + 5px); height: calc(5.83vw + 5px); border-radius: 50%; object-fit: cover; margin-bottom: 28px; }
+  .rv h4 { margin: 0; }
+  .rv-stars { color: var(--red); margin: 0 0 22px; }
+  .rv-quote { font-size: 14px; line-height: 1.6; max-width: 169px; max-width: 14vw; margin: 0 0 4px; }
+  .rv-link { font-size: 14px; margin: auto 0 0; }
+  .rv-link a { color: var(--green); }
+
+  .five { margin-left: 27.15vw; width: 49.5vw; }
+  .five h2 { margin-bottom: 0.4em; }
+  .five h3 { margin-bottom: 25px; }
+  .five img { width: 100%; height: calc(31.7vw + 150px); object-fit: cover; border-radius: 16px; margin-bottom: 43px; }
+  .reasons { max-width: 45.6vw; }
+  .reasons h4 { margin: 0 0 6px; }
+  .reasons p { margin: 0 0 10px; }
+  .five-cta { display: flex; flex-direction: column; align-items: center; width: 22.5vw; min-width: 220px; margin: 43px auto 0; }
+  .five-cta .btn { width: 100%; }
+  .five-cta .btn-note { text-align: center; }
+
+  @media (max-width: 860px) {
+    .w-hero { padding: 24px 0 56px; }
+    .w-hero-grid { grid-template-columns: 1fr; row-gap: 32px; }
+    .w-hero-img img { height: auto; aspect-ratio: 4 / 5; }
+    .w-hero-text :global(.rating), .w-hero-text h4, .rv-intro { max-width: none; }
+    .rv-grid { grid-template-columns: 1fr; gap: 16px; }
+    .rv { min-height: 0; }
+    .rv img { width: 80px; height: 80px; }
+    .rv-quote { max-width: 260px; }
+    .five { margin: 0 24px; width: auto; }
+    .five img { height: auto; aspect-ratio: 9 / 8; }
+    .reasons { max-width: none; }
+  }
+</style>

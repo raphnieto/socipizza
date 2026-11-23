@@ -1,7 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
-import PricingCards from '../components/PricingCards.astro';
-import Social from '../components/Social.astro';
+import Rating from '../components/Rating.astro';
+import PricingSection from '../components/PricingSection.astro';
+import Instagram from '../components/Instagram.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
 import { img, sized } from '../data/images';
 
 const faqs = [
@@ -22,7 +25,7 @@ const faqs = [
   <section class="hero bg-cream">
     <div class="wrap hero-grid">
       <div class="hero-text">
-        <p class="rating">★★★★★ <a href="https://share.google/VZ2poGUfvyTA4J0fn" target="_blank" rel="noopener">Rated on <span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span></a></p>
+        <Rating />
         <h1><span class="red"><strong>Pizza truck catering</strong></span><strong> for weddings and and private parties.</strong></h1>
         <h4>Trusted with 100+ guests at <a target="_blank" rel="noopener" href="https://www.wral.com/lifestyles/wral-lighting-towers-raleigh-durham-rocky-mount/">WRAL Media</a> &amp; <a target="_blank" rel="noopener" href="https://chrislovesjulia.com/">Chris Loves Julia</a>, serving Raleigh-Durham, Charlotte &amp; select North Carolina destinations.</h4>
         <div class="hero-cta">
@@ -64,67 +67,21 @@ const faqs = [
   </section>
 
   <!-- Pricing -->
-  <section class="section bg-cream pricing">
-    <div class="wrap">
-      <div class="center intro pricing-intro">
-        <h2><strong>Simple, transparent, </strong><span class="red"><strong>all-inclusive pricing.</strong></span></h2>
-        <p class="scribble">Absolutely no hidden fees.</p>
-        <h4 class="checks">✔ No surprises, clear communication.<br />✔ No wedding fee or seasonal minimums. <br />✔ <em>Most events fall between </em><strong><em>$935–$3,250.</em></strong></h4>
-      </div>
-      <PricingCards />
-    </div>
-  </section>
+  <PricingSection />
 
   <!-- Instagram -->
-  <section class="section bg-green">
-    <div class="wrap center">
-      <h1 class="insta-title"><strong>Follow <a href="https://www.instagram.com/socipizza" target="_blank" rel="noopener" class="yellow-link">@SociPizza</a> on Instagram</strong></h1>
-      <h4 class="insta-sub">See recent events, pizza shots, and behind the scenes from Raleigh-Durham, Charlotte, and select destinations across North Carolina.</h4>
-      <div class="insta-grid">
-        {img.insta.map((p) => (
-          <a href={p.href} target="_blank" rel="noopener"><img src={sized(p.src, 500)} alt="Soci Pizza on Instagram" loading="lazy" /></a>
-        ))}
-      </div>
-      <p class="small">Not on Instagram? Follow us on:</p>
-      <div class="insta-social"><Social size={20} /></div>
-    </div>
-  </section>
+  <Instagram sub="See recent events, pizza shots, and behind the scenes from Raleigh-Durham, Charlotte, and select destinations across North Carolina." />
 
   <!-- FAQ -->
-  <section class="section bg-white faq-section">
-    <div class="faq-wrap">
-      <h2><strong>Pizza catering FAQ</strong></h2>
-      <div class="faq">
-        {faqs.map(([q, a], i) => (
-          <details open={i === 0}>
-            <summary><h4>{q}</h4><span class="plus" aria-hidden="true"></span></summary>
-            <div class="answer" set:html={a} />
-          </details>
-        ))}
-      </div>
-      <p class="faq-more">Check out our <a href="https://www.socipizza.com/faq">FAQ page</a> for more questions &amp; answers.</p>
-    </div>
-  </section>
+  <Faq title="Pizza catering FAQ" items={faqs} />
 
   <!-- CTA -->
-  <section class="cta bg-black">
-    <div class="wrap cta-grid">
-      <div>
-        <h1><strong>Reserve your date with Soci Pizza ❤️</strong></h1>
-        <h4><strong>No hidden fees, upfront pricing, and a guaranteed commitment.</strong> Get in touch today and elevate your event.</h4>
-      </div>
-      <div class="cta-btn"><a href="/book-now" class="btn btn-white btn-lg">Book Now</a></div>
-    </div>
-  </section>
+  <Cta />
 </Base>
 
 <style>
-  /* Measurements copied from the live Squarespace page (1200 & 1440px wide) */
   .hero { padding: 3.4vw 0 8.7vw; }
   .hero-grid { display: grid; grid-template-columns: 37.9vw 41.8vw; column-gap: 4.65vw; align-items: center; }
-  .rating { margin: 0 0 0.5em; color: #d9a400; }
-  .rating a { color: var(--black); text-underline-offset: 3px; }
-  .g-b { color: #4285f4; } .g-r { color: #ea4335; } .g-y { color: #fbbc05; } .g-g { color: #34a853; }
   .hero h1 { margin-bottom: 0.35em; }
   .hero h4 a { color: var(--green); }
   .hero-cta { display: flex; flex-direction: column; width: 22.5vw; min-width: 220px; margin-top: 10px; }
@@ -132,7 +89,6 @@ const faqs = [
   .hero-img img { width: 100%; height: calc(15vw + 428px); object-fit: cover; border-radius: 16px; }
   .hero-cta .btn-note { text-align: center; }
 
-  .section { padding: 6.6vw 0; }
   .intro { margin: 0 auto 5.2vw; }
   .events-intro h2 { max-width: 45.3vw; margin: 0 auto 0.3em; }
   .events-intro .sub { font-size: var(--fs-h4); }
@@ -141,55 +97,13 @@ const faqs = [
   .event img { width: 100%; height: calc(12vw + 23px); object-fit: cover; border-radius: 12px; margin-bottom: 35px; }
   .event h3 { color: var(--green); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; font-weight: 700; margin-bottom: 0.9em; }
 
-  .pricing { padding-top: 3.5vw; }
-  .pricing-intro { max-width: 61vw; margin: 0 auto 3.6vw; }
-  .pricing-intro h2 { margin-bottom: 0.4em; }
-  .scribble { display: inline-block; font-style: italic; font-weight: 700; border: 1.5px solid var(--red); border-radius: 50%; padding: 0 16px; margin: 0 0 1.6em; }
-  .checks { margin: 0; }
-  .pricing .wrap { padding: 0 var(--gutter); }
-
-  .insta-title { max-width: 37.8vw; margin: 0 auto 0.15em; }
-  .yellow-link { color: var(--yellow); text-decoration-thickness: 1px; text-underline-offset: 6px; }
-  .insta-sub { max-width: 37.8vw; margin: 0 auto 3.3vw; }
-  .insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 47px; }
-  .insta-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 16px; }
-  .small { font-size: 14px; margin-bottom: 8px; }
-  .insta-social { display: flex; justify-content: center; color: var(--white); }
-
-  .faq-wrap { width: 53.3vw; margin: 0 auto; }
-  .faq-section { padding-bottom: 9vw; }
-  .faq-wrap > h2 { margin-bottom: 0.75em; }
-  .faq details { border-top: 1px solid #000; }
-  .faq details:last-child { border-bottom: 1px solid #000; }
-  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 28px 0; }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq summary h4 { margin: 0; }
-  .plus { position: relative; width: 14px; height: 14px; flex: none; }
-  .plus::before, .plus::after { content: ''; position: absolute; background: #000; }
-  .plus::before { left: 0; right: 0; top: 50%; height: 1px; }
-  .plus::after { top: 0; bottom: 0; left: 50%; width: 1px; }
-  details[open] .plus::after { display: none; }
-  .answer { padding: 14px 0 28px; max-width: 70%; }
-  .answer p:last-child { margin-bottom: 0; }
-  .faq-more { margin-top: 3vw; }
-  .faq-more a, .answer a { color: var(--green); }
-
-  .cta { padding: 5.7vw 0; }
-  .cta-grid { display: grid; grid-template-columns: 45.6vw 1fr; align-items: center; gap: 4vw; }
-  .cta h1 { margin-bottom: 0.25em; }
-  .cta h4 { margin: 0; }
-  .cta-btn { display: flex; justify-content: center; }
-
   @media (max-width: 860px) {
-    .hero-grid, .events, .cta-grid { grid-template-columns: 1fr; }
+    .hero-grid, .events { grid-template-columns: 1fr; }
     .hero-grid { row-gap: 32px; }
     .hero-img { order: -1; }
     .hero-img img { height: auto; aspect-ratio: 4 / 5; }
     .events { width: 100%; gap: 40px; }
     .event img { height: auto; aspect-ratio: 3 / 2; }
-    .events-intro h2, .pricing-intro, .insta-title, .insta-sub, .faq-wrap { max-width: none; width: auto; }
-    .insta-grid { grid-template-columns: repeat(3, 1fr); }
-    .answer { max-width: none; }
-    .section { padding: 56px 0; }
+    .events-intro h2 { max-width: none; }
   }
 </style>

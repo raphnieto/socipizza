@@ -1,0 +1,23 @@
+---
+import PricingCards from './PricingCards.astro';
+const { bg = 'bg-cream' } = Astro.props;
+---
+<section class={`section pricing ${bg}`}>
+  <div class="wrap">
+    <div class="center pricing-intro">
+      <h2><strong>Simple, transparent, </strong><span class="red"><strong>all-inclusive pricing.</strong></span></h2>
+      <p class="scribble">Absolutely no hidden fees.</p>
+      <h4 class="checks">✔ No surprises, clear communication.<br />✔ No wedding fee or seasonal minimums. <br />✔ <em>Most events fall between </em><strong><em>$935–$3,250.</em></strong></h4>
+    </div>
+    <PricingCards />
+  </div>
+</section>
+<style>
+  .pricing { padding-top: 3.5vw; }
+  .pricing .wrap { padding: 0 var(--gutter); }
+  .pricing-intro { max-width: 61vw; margin: 0 auto 3.6vw; }
+  .pricing-intro h2 { margin-bottom: 0.4em; }
+  .scribble { display: inline-block; font-style: italic; font-weight: 700; border: 1.5px solid var(--red); border-radius: 50%; padding: 0 16px; margin: 0 0 1.6em; }
+  .checks { margin: 0; }
+  @media (max-width: 860px) { .pricing-intro { max-width: none; } }
+</style>

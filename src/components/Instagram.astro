@@ -1,0 +1,28 @@
+---
+import Social from './Social.astro';
+import { img } from '../data/images';
+const { sub } = Astro.props;
+---
+<section class="section bg-green">
+  <div class="wrap center">
+    <h1 class="insta-title"><strong>Follow <a href="https://www.instagram.com/socipizza" target="_blank" rel="noopener" class="yellow-link">@SociPizza</a> on Instagram</strong></h1>
+    <h4 class="insta-sub">{sub}</h4>
+    <div class="insta-grid">
+      {img.insta.map((p) => (
+        <a href={p.href} target="_blank" rel="noopener"><img src={p.src} alt="Soci Pizza on Instagram" loading="lazy" /></a>
+      ))}
+    </div>
+    <p class="small">Not on Instagram? Follow us on:</p>
+    <div class="insta-social"><Social size={20} /></div>
+  </div>
+</section>
+<style>
+  .insta-title { max-width: 37.8vw; margin: 0 auto 0.15em; }
+  .yellow-link { color: var(--yellow); text-decoration-thickness: 1px; text-underline-offset: 6px; }
+  .insta-sub { max-width: 37.8vw; margin: 0 auto 3.3vw; }
+  .insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 47px; }
+  .insta-grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 16px; }
+  .small { font-size: 14px; margin-bottom: 8px; }
+  .insta-social { display: flex; justify-content: center; color: var(--white); }
+  @media (max-width: 860px) { .insta-title, .insta-sub { max-width: none; } .insta-grid { grid-template-columns: repeat(3, 1fr); } }
+</style>
