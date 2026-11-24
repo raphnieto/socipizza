@@ -47,21 +47,21 @@ const faqs = [
         <h4 class="sub"><span>Elevate your event</span> with our vintage Italian pizza truck.</h4>
       </div>
       <div class="events">
-        <a href="/weddings" class="event">
-          <img src={sized(img.cardWeddings, 750)} alt="Soci pizza truck with bride and groom in Carrboro, NC." loading="lazy" />
-          <h3>Rehearsal dinners &amp; weddings</h3>
-          <p>Perfect for weddings and rehearsal dinners in Raleigh-Durham, Charlotte, and beyond.</p>
-        </a>
-        <a href="/parties" class="event">
-          <img src={sized(img.cardParties, 750)} alt="A backyard engagement party in Hillsborough, NC with Soci Pizza." loading="lazy" />
-          <h3>Parties &amp; private celebrations</h3>
-          <p>Our mobile pizza truck brings a great vibe to any party in the Triangle and select NC cities.</p>
-        </a>
-        <a href="/corporate" class="event">
-          <img src={sized(img.cardCorporate, 750)} alt="Corporate pizza catering by Soci Pizza in Raleigh, NC." loading="lazy" />
-          <h3>Corporate lunch pizza catering</h3>
-          <p>Freshly made on-site pizza for team lunches or client events.</p>
-        </a>
+        <div class="event">
+          <a href="/weddings" class="event-img"><img src={sized(img.cardWeddings, 750)} alt="Soci pizza truck with bride and groom in Carrboro, NC." loading="lazy" /></a>
+          <div><h3><a href="/weddings">Rehearsal dinners &amp; weddings</a></h3>
+          <p>Perfect for weddings and rehearsal dinners in Raleigh-Durham, Charlotte, and beyond.</p></div>
+        </div>
+        <div class="event">
+          <a href="/parties" class="event-img"><img src={sized(img.cardParties, 750)} alt="A backyard engagement party in Hillsborough, NC with Soci Pizza." loading="lazy" /></a>
+          <div><h3><a href="/parties">Parties &amp; private celebrations</a></h3>
+          <p>Our mobile pizza truck brings a great vibe to any party in the Triangle and select NC cities.</p></div>
+        </div>
+        <div class="event">
+          <a href="/corporate" class="event-img"><img src={sized(img.cardCorporate, 750)} alt="Corporate pizza catering by Soci Pizza in Raleigh, NC." loading="lazy" /></a>
+          <div><h3><a href="/corporate">Corporate lunch pizza catering</a></h3>
+          <p>Freshly made on-site pizza for team lunches or client events.</p></div>
+        </div>
       </div>
     </div>
   </section>
@@ -84,7 +84,7 @@ const faqs = [
   .hero-grid { display: grid; grid-template-columns: 37.9vw 41.8vw; column-gap: 4.65vw; align-items: center; }
   .hero h1 { margin-bottom: 0.35em; }
   .hero h4 a { color: var(--green); }
-  .hero-cta { display: flex; flex-direction: column; width: 22.5vw; min-width: 220px; margin-top: 10px; }
+  .hero-cta { display: flex; flex-direction: column; width: 22.5vw; margin-top: 10px; }
   .hero-cta .btn { width: 100%; }
   .hero-img img { width: 100%; height: calc(15vw + 428px); object-fit: cover; border-radius: 16px; }
   .hero-cta .btn-note { text-align: center; }
@@ -93,17 +93,29 @@ const faqs = [
   .events-intro h2 { max-width: 45.3vw; margin: 0 auto 0.3em; }
   .events-intro .sub { font-size: var(--fs-h4); }
   .events { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5.2vw; width: 76.4vw; margin: 0 auto; }
-  .event { text-decoration: none; }
   .event img { width: 100%; height: calc(12vw + 23px); object-fit: cover; border-radius: 12px; margin-bottom: 35px; }
+  .event h3 a { color: var(--green); }
   .event h3 { color: var(--green); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; font-weight: 700; margin-bottom: 0.9em; }
 
-  @media (max-width: 860px) {
-    .hero-grid, .events { grid-template-columns: 1fr; }
-    .hero-grid { row-gap: 32px; }
-    .hero-img { order: -1; }
-    .hero-img img { height: auto; aspect-ratio: 4 / 5; }
-    .events { width: 100%; gap: 40px; }
-    .event img { height: auto; aspect-ratio: 3 / 2; }
-    .events-intro h2 { max-width: none; }
+  @media (max-width: 767px) {
+    /* Live order on phones: rating, title, text, landscape photo, button, note */
+    .hero { padding: 28px 0 59px; }
+    .hero-grid { display: flex; flex-direction: column; align-items: stretch; }
+    .hero-text { display: contents; }
+    .hero-text :global(.rating) { order: 1; margin-bottom: 7px; }
+    .hero h1 { order: 2; margin-bottom: 10px; }
+    .hero h4 { order: 3; margin-bottom: 10px; }
+    .hero-img { order: 4; }
+    .hero-img img { height: auto; aspect-ratio: 343 / 296; }
+    .hero-cta { order: 5; width: 100%; min-width: 0; margin-top: 44px; }
+    .hero-cta .btn-note { margin-top: 10px; }
+
+    .events-intro { margin-bottom: 38px; }
+    .events-intro h2 { max-width: none; margin-bottom: 5px; }
+    .events { grid-template-columns: 1fr; width: 100%; gap: 62px; }
+    .event { display: grid; grid-template-columns: 30vw 1fr; column-gap: 19px; align-items: start; }
+    .event img { width: 100%; height: auto; aspect-ratio: 117 / 143; margin: 0; }
+    .event h3 { margin-bottom: 4px; }
+    .event p { margin: 0; }
   }
 </style>

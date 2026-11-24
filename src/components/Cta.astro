@@ -16,5 +16,5 @@ const { bg = 'bg-black', btn = 'btn-white' } = Astro.props;
   .cta h1 { margin-bottom: 0.25em; }
   .cta h4 { margin: 0; }
   .cta-btn { display: flex; justify-content: center; }
-  @media (max-width: 860px) { .cta-grid { grid-template-columns: 1fr; } .cta { padding: 56px 0; } }
+  @media (max-width: 767px) { .cta-grid { grid-template-columns: 1fr; gap: 32px; } .cta { padding: 35px 0; } .cta h1 { margin-bottom: 12px; } .cta-btn .btn { width: 100%; min-height: 59px; } }
 </style>

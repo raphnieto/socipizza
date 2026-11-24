@@ -54,5 +54,15 @@ const packages = [
   .pkg-includes { margin: 0; }
   .pkg ul { list-style: none; padding: 0; margin: 0 0 3.3vw; }
   .pkg .btn { margin-top: auto; width: 100%; min-height: calc(4.17vw + 7px); }
-  @media (max-width: 860px) { .pkg-grid { grid-template-columns: 1fr; gap: 16px; } .pkg { padding: 28px; } .pkg img { height: 200px; } .pkg-guests { margin-bottom: 24px; } }
+  @media (max-width: 767px) {
+    .pkg-grid { grid-template-columns: 1fr; gap: 12px; }
+    .pkg { padding: 35px 11.6vw 34px; }
+    .pkg h4 { margin-bottom: 24px; }
+    .pkg-price { margin-bottom: 10px; }
+    .pkg-guests { margin-bottom: 7px; }
+    .pkg .pkg-note { margin-bottom: 11px; }
+    .pkg img { width: calc(100% + 58px); max-width: none; margin: 0 -29px 11px; height: 234px; }
+    .pkg ul { margin-bottom: 47px; }
+    .pkg .btn { min-height: 59px; }
+  }
 </style>

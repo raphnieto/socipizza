@@ -1,7 +1,7 @@
-// Sends Soci forms to book@socipizza.com via FormSubmit (no account needed).
-// First submission triggers a one-time activation email to book@socipizza.com.
+// Sends Soci forms to book@socipizza.com via Web3Forms.
 (function () {
-  var ENDPOINT = 'https://formsubmit.co/ajax/book@socipizza.com';
+  var ENDPOINT = 'https://api.web3forms.com/submit';
+  var ACCESS_KEY = 'WEB3FORMS_KEY';
   // Google Ads conversion label for booking requests (fill in from Google Ads > Goals > Conversions)
   var ADS_SEND_TO = window.SOCI_ADS_SEND_TO || '';
   document.querySelectorAll('form[data-form]').forEach(function (form) {
@@ -19,13 +19,15 @@
         if (data[key] === 'Other' && inp.value.trim()) data[key] = 'Other: ' + inp.value.trim();
         delete data[inp.name];
       });
-      data._subject = form.getAttribute('data-subject');
-      data._template = 'table';
-      data._captcha = 'false';
-      if (data.Email) data._replyto = data.Email;
+      if (data.botcheck) return; // spam bot filled the hidden field
+      delete data.botcheck;
+      data.access_key = ACCESS_KEY;
+      data.subject = form.getAttribute('data-subject');
+      data.from_name = 'Soci Pizza website';
+      if (data.Email) data.replyto = data.Email;
       btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = 'Sending…';
       fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) })
-        .then(function (r) { return r.json().then(function (j) { if (!r.ok || String(j.success) === 'false') throw new Error(j.message || 'Error'); }); })
+        .then(function (r) { return r.json().then(function (j) { if (!r.ok || !j.success) throw new Error(j.message || 'Error'); }); })
         .then(function () {
           form.innerHTML = '<p class="form-thanks">' + form.getAttribute('data-thanks') + '</p>';
           if (window.gtag) {

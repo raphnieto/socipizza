@@ -13,4 +13,4 @@
 .form button { align-self: flex-start; }
 .form-status { color: var(--red); margin: 0; }
 .form-thanks { font-size: var(--fs-h4); text-align: center; padding: 40px 0; }
-@media (max-width: 860px) { .form { width: auto; padding: 0 24px; } }
+@media (max-width: 767px) { .form { width: auto; padding: 0 24px; } }
