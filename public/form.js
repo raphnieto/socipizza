@@ -19,6 +19,10 @@
         if (data[key] === 'Other' && inp.value.trim()) data[key] = 'Other: ' + inp.value.trim();
         delete data[inp.name];
       });
+      // show dates the way you write them: "Saturday, June 12, 2027"
+      form.querySelectorAll('input[type=date]').forEach(function (d) {
+        if (d.value) data[d.name] = new Date(d.value + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      });
       if (data.botcheck) return; // spam bot filled the hidden field
       delete data.botcheck;
       data.access_key = ACCESS_KEY;
