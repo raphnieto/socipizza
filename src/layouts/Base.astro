@@ -36,12 +36,21 @@ const ldBusiness = { address: '', image: 'https://www.socipizza.com/images/local
     <script type="application/ld+json" set:html={JSON.stringify(ldBusiness)} />
     {extraLd.map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)}
     <!-- Google Ads (same account as the Squarespace site) -->
+    <!-- Microsoft Clarity -->
+    <script>
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "ts98ld6h67");
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17667807917"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-17667807917');
+      gtag('config', 'G-0P88MP71XM');
     </script>
     <script is:inline>
       // Remember where a visitor first came from (kept 90 days) so booking emails show the source.
