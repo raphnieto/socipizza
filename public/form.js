@@ -58,7 +58,7 @@
     var guests = d['How many guests will be eating pizza?'];
     var name = ((d['First Name'] || '') + ' ' + (d['Last Name'] || '')).trim();
     var out = {
-      subject: 'Form Submission - Booking Request · ' + first(name) + ' · ' + (d['Event date'] || 'date TBD') + ' · ' + (pkg || 'package TBD') + ' · ' + (guests || '?') + ' guests',
+      subject: 'Form Submission - Booking Request',
       from_name: 'Soci Pizza',
       'Guests': guests, 'Date': d['Event date'], 'Time': d['Service time'], 'Location': d['Event location'],
       'Package': pkg || 'Not picked', 'Role': role, 'Name': name, 'Email': d.Email, 'Phone': d.Phone,
@@ -70,7 +70,7 @@
   }
   function buildEmail(d) {
     var name = ((d['First Name'] || '') + ' ' + (d['Last Name'] || '')).trim();
-    var out = { subject: 'Form Submission - Soci Build Request · ' + name + ' · ' + (d['What type of business is it for?'] || '') + ' · Budget: ' + (d['What is the approximate budget for your project?'] || '?'), from_name: 'Soci Pizza' };
+    var out = { subject: 'Form Submission - Soci Build Request', from_name: 'Soci Pizza' };
     for (var k in d) out[k] = d[k];
     return out;
   }
