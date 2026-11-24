@@ -58,8 +58,8 @@
     var guests = d['How many guests will be eating pizza?'];
     var name = ((d['First Name'] || '') + ' ' + (d['Last Name'] || '')).trim();
     var out = {
-      subject: first(name) + "'s booking request, " + (d['Event date'] || 'date TBD') + ' (' + (pkg || 'package TBD') + ', ' + (guests || '?') + ' guests) · ' + (d['Event location'] || ''),
-      from_name: 'Soci Pizza new booking request!',
+      subject: 'Form Submission - Booking Request · ' + first(name) + ' · ' + (d['Event date'] || 'date TBD') + ' · ' + (pkg || 'package TBD') + ' · ' + (guests || '?') + ' guests',
+      from_name: 'Soci Pizza',
       'Guests': guests, 'Date': d['Event date'], 'Time': d['Service time'], 'Location': d['Event location'],
       'Package': pkg || 'Not picked', 'Role': role, 'Name': name, 'Email': d.Email, 'Phone': d.Phone,
       'Notes': d["Anything else you'd like to share?"] || '—',
@@ -70,7 +70,7 @@
   }
   function buildEmail(d) {
     var name = ((d['First Name'] || '') + ' ' + (d['Last Name'] || '')).trim();
-    var out = { subject: 'Soci Build request · ' + name + ' · ' + (d['What type of business is it for?'] || '') + ' · Budget: ' + (d['What is the approximate budget for your project?'] || '?'), from_name: 'Soci Build new request!' };
+    var out = { subject: 'Form Submission - Soci Build Request · ' + name + ' · ' + (d['What type of business is it for?'] || '') + ' · Budget: ' + (d['What is the approximate budget for your project?'] || '?'), from_name: 'Soci Pizza' };
     for (var k in d) out[k] = d[k];
     return out;
   }
@@ -128,4 +128,11 @@
     });
     inp.addEventListener('blur', function () { setTimeout(close, 150); });
   });
+})();
+
+// Event dates: only today through 5 years ahead, so a typo like year 0001 can't be submitted
+(function () {
+  var t = new Date(), iso = function (d) { return d.toISOString().slice(0, 10); };
+  var max = new Date(t); max.setFullYear(t.getFullYear() + 5);
+  document.querySelectorAll('form[data-form] input[type=date]').forEach(function (d) { d.min = iso(t); d.max = iso(max); });
 })();
