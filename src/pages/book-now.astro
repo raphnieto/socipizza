@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/form.css';
+---
+<Base
+  title="Book Your Pizza Truck – Wedding & Event Pizza Catering — Soci Pizza"
+  description="Ready to host something unforgettable? Book Soci Pizza for your wedding, celebration, or private event in Raleigh-Durham, Charlotte, or select North Carolina destinations. Easy form—quick response."
+>
+  <section class="bn bg-cream">
+    <div class="bn-intro center">
+      <h1><strong>Reserve your date with Soci Pizza ❤️</strong></h1>
+      <h4><strong>No hidden fees, upfront pricing, and a guaranteed commitment.</strong> Get in touch today and elevate your event.</h4>
+      <p>Most events range from <em>$935–$3,250+</em> depending on guest count, setup, and location.</p>
+    </div>
+    <form class="form" data-form="booking" data-subject="Form Submission - Booking Request" data-thanks="Thank you! We received your request and will get back to you shortly. ❤️">
+      <label>Event date <span class="req">(required)</span><input type="date" name="Event date" required /></label>
+      <label>Service time <span class="req">(required)</span><input name="Service time" required placeholder="e.g. 6–8pm" /></label>
+      <label>Event location <span class="req">(required)</span><input name="Event location" required placeholder="Address or venue" /></label>
+      <label>How many guests will be eating pizza? <span class="req">(required)</span><input name="How many guests will be eating pizza?" required inputmode="numeric" /></label>
+      <fieldset class="radios"><legend>What role will Soci Pizza play? <span class="req">(required)</span></legend>
+        <label><input type="radio" name="What role will Soci Pizza play?" value="Main meal" required /> Main meal</label>
+        <label><input type="radio" name="What role will Soci Pizza play?" value="Additional food vendor" /> Additional food vendor</label>
+        <label><input type="radio" name="What role will Soci Pizza play?" value="Late-night snack" /> Late-night snack</label>
+        <label><input type="radio" name="What role will Soci Pizza play?" value="Other" /> Other</label>
+        <input name="role_other" data-other-for="What role will Soci Pizza play?" placeholder="Tell us more" hidden />
+      </fieldset>
+      <fieldset class="radios"><legend>Which package are you interested in? <span class="req">(required)</span></legend>
+        <label><input type="radio" name="Which package are you interested in?" value="Chef" required /> Chef</label>
+        <label><input type="radio" name="Which package are you interested in?" value="Tent" /> Tent</label>
+        <label><input type="radio" name="Which package are you interested in?" value="Truck" /> Truck</label>
+        <label><input type="radio" name="Which package are you interested in?" value="Help me choose" /> Help me choose</label>
+      </fieldset>
+      <label>Name <span class="req">(required)</span><input name="Name" required autocomplete="name" /></label>
+      <label>Email <span class="req">(required)</span><input type="email" name="Email" required autocomplete="email" /></label>
+      <label>Phone <span class="req">(required)</span><input type="tel" name="Phone" required autocomplete="tel" /></label>
+      <label>Anything else you'd like to share?<textarea name="Anything else you'd like to share?" rows="4"></textarea></label>
+      <fieldset class="radios"><legend>How did you find us?</legend>
+        <label><input type="radio" name="How did you find us?" value="Google Organic" /> Google Organic</label>
+        <label><input type="radio" name="How did you find us?" value="Google Ads" /> Google Ads</label>
+        <label><input type="radio" name="How did you find us?" value="Instagram/Facebook" /> Instagram/Facebook</label>
+        <label><input type="radio" name="How did you find us?" value="Word of Mouth" /> Word of Mouth</label>
+        <label><input type="radio" name="How did you find us?" value="Other" /> Other</label>
+        <input name="found_other" data-other-for="How did you find us?" placeholder="Tell us where" hidden />
+      </fieldset>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <p class="form-status" aria-live="polite"></p>
+      <button type="submit" class="btn btn-lg">Submit</button>
+    </form>
+  </section>
+  <script is:inline src="/form.js" defer></script>
+</Base>
+<style>
+  .bn { padding: 70px 0 8vw; }
+  .bn-intro { width: 61vw; margin: 0 auto 48px; }
+  .bn-intro h1 { margin-bottom: 0.3em; }
+  .bn-intro h4 { margin-bottom: 1em; }
+  @media (max-width: 860px) { .bn-intro { width: auto; padding: 0 24px; } }
+</style>

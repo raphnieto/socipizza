@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import '../styles/form.css';
 const I = (n: string) => `/images/sb-${n}.webp`;
 const feats = [
   ['blue-piaggio-ape-mini-food-truck-modular-build', 'Vintage blue Piaggio Ape mini food truck for catering businesses.', '100% modularity', 'Every nut, bolt, sign, and finish of your Piaggio Ape is fully modular, keeping the vehicle’s original charm and value intact.'],
@@ -96,28 +97,31 @@ const feats = [
   <section class="sb-form bg-white" id="buildrequestform">
     <h2 class="center"><strong>Soci Build request form.</strong></h2>
     <h4 class="center">Get a custom Piaggio Ape food truck build. <strong>Limited 2026-2027 production slots available</strong>.</h4>
-    <form class="form" method="post" data-form="soci-build">
-      <fieldset class="row2"><legend>Name <span>(required)</span></legend>
-        <label>First Name<input name="fname" required autocomplete="given-name" /></label>
-        <label>Last Name<input name="lname" required autocomplete="family-name" /></label>
+    <form class="form" data-form="soci-build" data-subject="Form Submission - Soci Build" data-thanks="Thank you! I received your build request and will reach out soon.">
+      <fieldset class="row2"><legend>Name <span class="req">(required)</span></legend>
+        <label>First Name<input name="First Name" required autocomplete="given-name" /></label>
+        <label>Last Name<input name="Last Name" required autocomplete="family-name" /></label>
       </fieldset>
-      <label>Email <span>(required)</span><input type="email" name="email" required autocomplete="email" /></label>
-      <label>Phone <span>(required)</span><input type="tel" name="phone" required autocomplete="tel" /></label>
-      <label>What is the approximate budget for your project? <span>(required)</span><small>A range is totally fine.</small><input name="budget" required /></label>
-      <label>Where will the truck be delivered to?<input name="delivery" /></label>
-      <label>What type of business is it for? <span>(required)</span>
-        <select name="business" required><option value="">Select an option</option><option>Pizza</option><option>Gelato</option><option>Coffee</option><option>Baked Goods</option><option>Other</option></select>
+      <label>Email <span class="req">(required)</span><input type="email" name="Email" required autocomplete="email" /></label>
+      <label>Phone <span class="req">(required)</span><input type="tel" name="Phone" required autocomplete="tel" /></label>
+      <label>What is the approximate budget for your project? <span class="req">(required)</span><small>A range is totally fine.</small><input name="What is the approximate budget for your project?" required /></label>
+      <label>Where will the truck be delivered to?<input name="Where will the truck be delivered to?" /></label>
+      <label>What type of business is it for? <span class="req">(required)</span>
+        <select name="What type of business is it for?" required><option value="">Select an option</option><option>Pizza</option><option>Gelato</option><option>Coffee</option><option>Baked Goods</option><option>Other</option></select>
       </label>
-      <label>Do you have any more details you'd like to share for the build?<textarea name="details" rows="4"></textarea></label>
+      <label>Do you have any more details you'd like to share for the build?<textarea name="Do you have any more details you'd like to share for the build?" rows="4"></textarea></label>
       <fieldset class="radios"><legend>Help me keep doing what I love. How did you hear about Soci Build?</legend>
-        <label><input type="radio" name="source" value="Google Ads" /> Google Ads</label>
-        <label><input type="radio" name="source" value="Google Organic Search" /> Google Organic Search</label>
-        <label><input type="radio" name="source" value="Social Media/ Youtube" /> Social Media/ Youtube</label>
-        <label><input type="radio" name="source" value="Word of Mouth" /> Word of Mouth</label>
+        <label><input type="radio" name="How did you hear about Soci Build?" value="Google Ads" /> Google Ads</label>
+        <label><input type="radio" name="How did you hear about Soci Build?" value="Google Organic Search" /> Google Organic Search</label>
+        <label><input type="radio" name="How did you hear about Soci Build?" value="Social Media/ Youtube" /> Social Media/ Youtube</label>
+        <label><input type="radio" name="How did you hear about Soci Build?" value="Word of Mouth" /> Word of Mouth</label>
       </fieldset>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <p class="form-status" aria-live="polite"></p>
       <button type="submit" class="btn btn-lg">Request your build</button>
     </form>
   </section>
+  <script is:inline src="/form.js" defer></script>
 </Base>
 
 <style>
@@ -159,18 +163,6 @@ const feats = [
   .sb-form { padding: 5.75vw 0 6vw; }
   .sb-form h2 { margin-bottom: 0.5em; }
   .sb-form > h4 { max-width: 61vw; margin: 0 auto 48px; }
-  .form { width: 37.8vw; min-width: 300px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; font-size: 14px; }
-  .form label, .form legend { display: flex; flex-direction: column; gap: 6px; }
-  .form span { opacity: 0.6; }
-  .form small { font-size: var(--fs-body); }
-  .form fieldset { border: 0; padding: 0; margin: 0; }
-  .form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .form .row2 legend { grid-column: 1 / -1; margin-bottom: 6px; }
-  .form input:not([type=radio]), .form select, .form textarea { font: inherit; font-size: 16px; padding: 12px; border: 1px solid #a9a9a9; border-radius: 0; background: #fafafa; width: 100%; }
-  .form .radios { display: flex; flex-wrap: wrap; gap: 14px 30px; }
-  .form .radios legend { width: 100%; margin-bottom: 8px; }
-  .form .radios label { flex-direction: row; align-items: center; gap: 8px; }
-  .form button { align-self: flex-start; }
 
   @media (max-width: 860px) {
     .sb-hero blockquote, .sb-feats h2, .sb-partner h2, .sb-partner h4, .sb-form > h4 { max-width: none; padding: 0 24px; }
@@ -179,6 +171,5 @@ const feats = [
     .feat-grid { grid-template-columns: 1fr 1fr; }
     .plans { grid-template-columns: 1fr; padding: 0 24px; }
     .plan { min-height: 0; }
-    .form { width: auto; padding: 0 24px; }
   }
 </style>

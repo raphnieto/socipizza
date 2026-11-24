@@ -1,0 +1,16 @@
+.form { width: 37.8vw; min-width: 300px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; font-size: 14px; text-align: left; }
+.form label, .form legend { display: flex; flex-direction: column; gap: 6px; }
+.form .req { opacity: 0.6; }
+.form small { font-size: 13px; opacity: 0.8; }
+.form fieldset { border: 0; padding: 0; margin: 0; }
+.form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.form .row2 legend { grid-column: 1 / -1; margin-bottom: 6px; }
+.form input:not([type=radio]):not([type=checkbox]), .form select, .form textarea { font: inherit; font-size: 16px; padding: 12px; border: 1px solid #a9a9a9; border-radius: 0; background: #fafafa; width: 100%; color: inherit; }
+.form .radios { display: flex; flex-direction: column; gap: 10px; }
+.form .radios legend { margin-bottom: 4px; }
+.form .radios label { flex-direction: row; align-items: center; gap: 8px; font-size: 16px; }
+.form .hp { position: absolute; left: -9999px; }
+.form button { align-self: flex-start; }
+.form-status { color: var(--red); margin: 0; }
+.form-thanks { font-size: var(--fs-h4); text-align: center; padding: 40px 0; }
+@media (max-width: 860px) { .form { width: auto; padding: 0 24px; } }
