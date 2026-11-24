@@ -1,7 +1,7 @@
 // Sends Soci forms to book@socipizza.com via Web3Forms.
 (function () {
   var ENDPOINT = 'https://api.web3forms.com/submit';
-  var ACCESS_KEY = 'WEB3FORMS_KEY';
+  var ACCESS_KEY = '0a445442-6022-4f68-a6e0-ef4ffae840a6'; // public key, safe in browser code
   // Google Ads conversion label for booking requests (fill in from Google Ads > Goals > Conversions)
   var ADS_SEND_TO = window.SOCI_ADS_SEND_TO || '';
   document.querySelectorAll('form[data-form]').forEach(function (form) {
