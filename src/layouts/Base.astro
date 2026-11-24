@@ -43,6 +43,32 @@ const ldBusiness = { address: '', image: 'https://www.socipizza.com/images/local
       gtag('js', new Date());
       gtag('config', 'AW-17667807917');
     </script>
+    <script is:inline>
+      // Remember where a visitor first came from (kept 90 days) so booking emails show the source.
+      (function () {
+        try {
+          var KEY = 'soci_src', now = Date.now(), old = JSON.parse(localStorage.getItem(KEY) || 'null');
+          var q = new URLSearchParams(location.search), ref = document.referrer, host = '';
+          try { host = ref ? new URL(ref).hostname : ''; } catch (e) {}
+          if (host.indexOf('socipizza') > -1 || host.indexOf('vercel.app') > -1) host = '';
+          var utm = (q.get('utm_source') || '').toLowerCase(), med = (q.get('utm_medium') || '').toLowerCase();
+          var src = '';
+          if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || med === 'cpc' || med === 'ppc') src = 'Google Ads';
+          else if (/instagram/.test(utm + host)) src = 'Instagram';
+          else if (/facebook|^fb$|fb\.com/.test(utm + ' ' + host) || q.get('fbclid')) src = 'Facebook';
+          else if (/youtube|youtu\.be/.test(utm + host)) src = 'YouTube';
+          else if (/tiktok/.test(utm + host)) src = 'TikTok';
+          else if (utm) src = utm;
+          else if (/(^|\.)google\./.test(host)) src = 'Google Organic';
+          else if (/bing|duckduckgo|yahoo/.test(host)) src = 'Other search (' + host + ')';
+          else if (host) src = 'Referral (' + host + ')';
+          var fresh = !old || now - old.t > 90 * 864e5;
+          if (fresh || (src && src !== 'Direct' && old.src === 'Direct')) {
+            localStorage.setItem(KEY, JSON.stringify({ src: src || 'Direct', landing: location.pathname, t: now }));
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body class={`hdr-${header}`}>
     <div class="announce" id="announce">

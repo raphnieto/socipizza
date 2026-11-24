@@ -1,5 +1,5 @@
 ---
-const { title = '', items, more = 'Check out our <a href="https://www.socipizza.com/faq">FAQ page</a> for more questions &amp; answers.' } = Astro.props as { title?: string; items: [string, string][]; more?: string };
+const { title = '', items, more = 'Check out our <a href="/faq">FAQ page</a> for more questions &amp; answers.' } = Astro.props as { title?: string; items: [string, string][]; more?: string };
 ---
 <section class="section bg-white faq-section">
   <div class="faq-wrap">
