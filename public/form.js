@@ -56,11 +56,12 @@
   function bookingEmail(d) {
     var role = d['What role will Soci Pizza play?'], pkg = d['Which package are you interested in?'];
     var guests = d['How many guests will be eating pizza?'];
+    var name = ((d['First Name'] || '') + ' ' + (d['Last Name'] || '')).trim();
     var out = {
-      subject: '🍕 ' + first(d.Name) + "'s booking request, " + (d['Event date'] || 'date TBD') + ' (' + (pkg || 'package TBD') + ', ' + (guests || '?') + ' guests) · ' + (d['Event location'] || ''),
-      from_name: 'Soci Pizza 🍕 New booking request',
+      subject: first(name) + "'s booking request, " + (d['Event date'] || 'date TBD') + ' (' + (pkg || 'package TBD') + ', ' + (guests || '?') + ' guests) · ' + (d['Event location'] || ''),
+      from_name: 'Soci Pizza new booking request!',
       'Guests': guests, 'Date': d['Event date'], 'Time': d['Service time'], 'Location': d['Event location'],
-      'Package': pkg, 'Role': role, 'Name': d.Name, 'Email': d.Email, 'Phone': d.Phone,
+      'Package': pkg || 'Not picked', 'Role': role, 'Name': name, 'Email': d.Email, 'Phone': d.Phone,
       'Notes': d["Anything else you'd like to share?"] || '—',
       'How they found us': d['How did you find us?'] || '—',
       'Source (auto-detected)': d['Source (auto-detected)'] || 'Unknown', 'First page visited': d['First page visited'] || '—'
@@ -69,7 +70,7 @@
   }
   function buildEmail(d) {
     var name = ((d['First Name'] || '') + ' ' + (d['Last Name'] || '')).trim();
-    var out = { subject: '🛻 Soci Build request · ' + name + ' · ' + (d['What type of business is it for?'] || '') + ' · Budget: ' + (d['What is the approximate budget for your project?'] || '?'), from_name: 'Soci Build 🛻 New request' };
+    var out = { subject: 'Soci Build request · ' + name + ' · ' + (d['What type of business is it for?'] || '') + ' · Budget: ' + (d['What is the approximate budget for your project?'] || '?'), from_name: 'Soci Build new request!' };
     for (var k in d) out[k] = d[k];
     return out;
   }
@@ -84,5 +85,47 @@
       inp.hidden = !on;
     }
     form.addEventListener('change', sync); sync();
+  });
+
+  // Address / venue autocomplete (Mapbox Search Box, biased to the Triangle)
+  var MAPBOX = window.SOCI_MAPBOX || '';
+  document.querySelectorAll('input[data-address]').forEach(function (inp) {
+    var session = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now()), list = document.createElement('ul'), timer, items = [], active = -1;
+    list.className = 'addr-list'; list.hidden = true; inp.parentNode.appendChild(list);
+    function close() { list.hidden = true; active = -1; }
+    function pick(i) {
+      var it = items[i]; if (!it) return;
+      inp.value = it.name && it.full && it.full.indexOf(it.name) !== 0 ? it.name + ', ' + it.full : (it.full || it.name);
+      close();
+      fetch('https://api.mapbox.com/search/searchbox/v1/retrieve/' + it.id + '?session_token=' + session + '&access_token=' + MAPBOX).catch(function () {});
+    }
+    function render() {
+      list.innerHTML = '';
+      items.forEach(function (it, i) {
+        var li = document.createElement('li'); li.className = i === active ? 'on' : '';
+        li.innerHTML = '<strong></strong><small></small>'; li.firstChild.textContent = it.name; li.lastChild.textContent = it.full || '';
+        li.addEventListener('mousedown', function (e) { e.preventDefault(); pick(i); });
+        list.appendChild(li);
+      });
+      list.hidden = !items.length;
+    }
+    inp.addEventListener('input', function () {
+      clearTimeout(timer); var q = inp.value.trim();
+      if (q.length < 3) { items = []; render(); return; }
+      timer = setTimeout(function () {
+        fetch('https://api.mapbox.com/search/searchbox/v1/suggest?q=' + encodeURIComponent(q) + '&language=en&country=us&limit=5&types=address,poi,place&proximity=-78.9,35.8&session_token=' + session + '&access_token=' + MAPBOX)
+          .then(function (r) { return r.json(); })
+          .then(function (j) { items = (j.suggestions || []).map(function (s) { return { id: s.mapbox_id, name: s.name, full: s.full_address || s.place_formatted || '' }; }); active = -1; render(); })
+          .catch(function () {});
+      }, 250);
+    });
+    inp.addEventListener('keydown', function (e) {
+      if (list.hidden) return;
+      if (e.key === 'ArrowDown') { active = Math.min(active + 1, items.length - 1); render(); e.preventDefault(); }
+      else if (e.key === 'ArrowUp') { active = Math.max(active - 1, 0); render(); e.preventDefault(); }
+      else if (e.key === 'Enter' && active > -1) { pick(active); e.preventDefault(); }
+      else if (e.key === 'Escape') close();
+    });
+    inp.addEventListener('blur', function () { setTimeout(close, 150); });
   });
 })();

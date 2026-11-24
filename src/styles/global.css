@@ -91,7 +91,7 @@ p { margin: 0 0 1em; }
   .announce { min-height: 42px; font-size: 13px; }
   .header-inner { height: 86px; padding: 0 6vw; }
   .logo img { width: 68px; }
-  .btn-lg { width: 100%; min-width: 0; min-height: 58px; padding: 0 1em; }
+  .btn-lg { width: 100% !important; min-width: 0; min-height: 58px; padding: 0 1em; }
 }
 
 /* Header themes (match Squarespace section themes per page) */

@@ -76,7 +76,7 @@ const addons = [
   .m-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
   .m-card { background: #f5f5f5; border-radius: 16px; display: flex; justify-content: space-between; min-height: 10.67vw; }
   .m-card p { font-size: 14px; line-height: 1.6; padding: 19px 0 19px 19px; margin: 0; max-width: 23vw; }
-  .m-card img { width: 10.67vw; height: 10.67vw; object-fit: cover; border-radius: 16px; flex: none; }
+  .m-card img { width: 10.67vw; min-height: 10.67vw; height: auto; align-self: stretch; object-fit: cover; border-radius: 16px; flex: none; }
   .m-cta { margin-top: 46px; display: flex; flex-direction: column; align-items: center; }
   .m-cta p { margin: 0 0 11px; }
   .m-cta .btn { width: 22.5vw; }
@@ -92,6 +92,6 @@ const addons = [
     .m-list { width: auto; padding: 0 24px; }
     .m-grid { grid-template-columns: 1fr; }
     .m-card p { max-width: none; padding-right: 12px; }
-    .m-card img { width: 110px; height: 110px; }
+    .m-card img { width: 110px; min-height: 110px; }
   }
 </style>
