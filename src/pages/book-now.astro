@@ -12,10 +12,10 @@ import '../styles/form.css';
       <h4><strong>No hidden fees, upfront pricing, and a guaranteed commitment.</strong> Get in touch today and elevate your event.</h4>
     </div>
     <form class="form" data-form="booking" data-redirect="/thank-you" data-thanks="Thank you! We received your request and will get back to you shortly. ❤️">
-      <h3 class="form-section"><span>1</span> Event details</h3>
+      <h3 class="form-section">Event details</h3>
       <label>Event date <span class="req">(required)</span><input type="date" name="Event date" required /></label>
       <label>Service time <span class="req">(required)</span><small>Not sure yet? A close estimate is fine for now.</small><input name="Service time" required /></label>
-      <label class="addr">Event location <span class="req">(required)</span><input name="Event location" required data-address autocomplete="off" placeholder="Start typing the address or venue name" /></label>
+      <label class="addr">Event location <span class="req">(required)</span><input name="Event location" required data-address autocomplete="off" placeholder="Start typing address or venue" /></label>
       <label>How many guests will be eating pizza? <span class="req">(required)</span><small>Helps create your quote. Estimate is totally fine.</small><input name="How many guests will be eating pizza?" required /></label>
       <fieldset class="radios"><legend>What role will Soci Pizza play? <span class="req">(required)</span></legend>
         <label><input type="radio" name="What role will Soci Pizza play?" value="Main meal" required /> Main meal</label>
@@ -23,7 +23,7 @@ import '../styles/form.css';
         <label><input type="radio" name="What role will Soci Pizza play?" value="Not sure" /> Not sure</label>
       </fieldset>
 
-      <h3 class="form-section"><span>2</span> Package</h3>
+      <h3 class="form-section">Package</h3>
       <fieldset class="radios"><legend>Which package are you interested in?</legend>
         <label><input type="radio" name="Which package are you interested in?" value="Help me choose" /> Help me choose</label>
         <label><input type="radio" name="Which package are you interested in?" value="Truck" /> Truck</label>
@@ -31,7 +31,7 @@ import '../styles/form.css';
         <label><input type="radio" name="Which package are you interested in?" value="Chef" /> Chef</label>
       </fieldset>
 
-      <h3 class="form-section"><span>3</span> Contact</h3>
+      <h3 class="form-section">Contact</h3>
       <fieldset class="row2"><legend>Name</legend>
         <label>First Name <span class="req">(required)</span><input name="First Name" required autocomplete="given-name" /></label>
         <label>Last Name<input name="Last Name" autocomplete="family-name" /></label>
