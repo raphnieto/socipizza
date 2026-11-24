@@ -71,6 +71,7 @@
       'Package': pkg || 'Not picked', 'Role': role, 'Name': name, 'Email': d.Email, 'Phone': d.Phone,
       'Notes': d["Anything else you'd like to share?"] || '—',
       'How they found us': d['How did you find us?'] || '—',
+      'Keep me posted': d['Keep me posted'] === 'Yes' ? 'Yes' : 'No',
       'Source (auto-detected)': d['Source (auto-detected)'] || 'Unknown', 'First page visited': d['First page visited'] || '—'
     };
     return out;

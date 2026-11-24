@@ -31,3 +31,5 @@
 .addr-list li:hover, .addr-list li.on { background: var(--cream); }
 @media (max-width: 767px) { .form { width: auto; padding: 0 6vw; } .form-submit { min-height: 59px; } }
 .form legend { padding: 0; }
+.form label.check { display: flex; flex-direction: row; align-items: center; gap: 12px; font-size: var(--fs-body); cursor: pointer; }
+.form input[type=checkbox] { width: 20px; height: 20px; margin: 0; accent-color: var(--black); flex: none; }
