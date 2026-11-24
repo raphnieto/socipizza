@@ -8,6 +8,11 @@
       "permanent": true
     },
     {
+      "source": "/soci-build",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
       "source": "/packages",
       "destination": "/pricing",
       "permanent": true

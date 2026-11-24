@@ -39,17 +39,12 @@ const build = [
     <div class="a-col">
       <h2><strong>About the build.</strong></h2>
       <p>After running into overpriced, poorly built food trucks, I decided to design and build my own, a 1991 Piaggio Ape mini food truck, custom-engineered for <em>private-only</em> mobile pizza catering. Every inch was handcrafted in my Pittsboro garage using American aluminum, modular design, and a Gozney pizza oven mounted above the cab, a placement now <em>patent pending</em>.</p>
-      <p>This one-year solo build became both the heart of Soci Pizza and the prototype for future Soci Build projects: micro food trucks designed for performance, beauty, and real business use. Need a Piaggio Ape food truck? Visit <a href="/soci-build">Soci Build</a>.</p>
+      <p>This one-year solo build became the heart of Soci Pizza.</p>
       <div class="steps">
         {build.map(([src, alt, cap]) => (
           <div><img src={src} alt={alt} loading="lazy" /><p set:html={cap} /></div>
         ))}
       </div>
-    </div>
-    <div class="b-cta center">
-      <p><strong>Looking for a Piaggio Ape food truck? </strong>Click below to visit Soci Pizza Build.</p>
-      <a href="/soci-build" class="btn btn-lg">Build me a mini food truck</a>
-      <p class="phone">Or text/call <a href="tel:6672904315">(667) 290-4315</a></p>
     </div>
   </section>
 </Base>
