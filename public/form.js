@@ -37,12 +37,19 @@
       fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) })
         .then(function (r) { return r.json().then(function (j) { if (!r.ok || !j.success) throw new Error(j.message || 'Error'); }); })
         .then(function () {
-          var go = form.getAttribute('data-redirect');
-          if (go) { location.href = go; return; }
+          var go = form.getAttribute('data-redirect'), kind = form.getAttribute('data-form');
+          // Analytics: one event per real submission (not per thank-you page view)
+          var evName = kind === 'booking' ? 'booking_submitted' : kind + '_submitted';
+          if (go) {
+            var done = false, leave = function () { if (!done) { done = true; location.href = go; } };
+            if (window.gtag) { gtag('event', evName, { form: kind, event_callback: leave, event_timeout: 1500 }); setTimeout(leave, 1600); } else leave();
+            return;
+          }
           form.innerHTML = '<p class="form-thanks">' + form.getAttribute('data-thanks') + '</p>';
           if (window.gtag) {
             if (ADS_SEND_TO) gtag('event', 'conversion', { send_to: ADS_SEND_TO });
             gtag('event', 'generate_lead', { form: form.getAttribute('data-form') });
+            gtag('event', evName, { form: kind });
           }
         })
         .catch(function () {
