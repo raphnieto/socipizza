@@ -2,8 +2,35 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/home", "destination": "/", "permanent": true },
-    { "source": "/blog/category/:slug*", "destination": "/blog", "permanent": true },
-    { "source": "/blog/tag/:slug*", "destination": "/blog", "permanent": true }
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/packages",
+      "destination": "/pricing",
+      "permanent": true
+    },
+    {
+      "source": "/menu",
+      "destination": "/catering-menu",
+      "permanent": true
+    },
+    {
+      "source": "/new-page",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/:slug*",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tag/:slug*",
+      "destination": "/blog",
+      "permanent": true
+    }
   ]
 }
